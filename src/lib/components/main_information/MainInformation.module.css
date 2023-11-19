@@ -1,0 +1,36 @@
+.header {
+  height: 5cm;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1em;
+}
+
+.picture {
+  height: inherit;
+}
+
+.picture img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 100%;
+}
+
+.personName {
+  font: 2em "Tahoma";
+  font-weight: bold;
+  color: #666;
+}
+
+.goal {
+  border-bottom: 1px solid gray;
+  margin: 0.2em 0;
+  margin-bottom: 1em;
+  color: #aaa;
+}
+
+.summary {
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
