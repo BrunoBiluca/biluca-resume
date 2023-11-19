@@ -1,18 +1,18 @@
+@import url("./Theme.module.css");
+
 .resume {
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  font: 12px "Tahoma";
+  font-family: var(--font-main-family);
+  color: var(--font-main-color);
 }
 
-.resume h3 {
-  font: 16px "Tahoma";
+h1 {
+  font-size: 2em;
   font-weight: bold;
 }
 
-.resume h4 {
-  font: 14px "Tahoma";
-  font-weight: bold;
+p {
+  font-size: 12px;
+  line-height: 1;
 }
 
 @page {

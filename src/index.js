@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Resume } from "./lib";
 import ResumeModel from "./lib/models/Resume.model.js"
 import styles from "./style.module.css"
+import reset from "./reset.module.css"
 import main_data from "./resume_data/main_information.json"
 import MainInformation from './lib/models/MainInformation.model.js';
 
@@ -11,7 +12,7 @@ function App() {
   let resume = new ResumeModel(main)
 
   return (
-    <div style={{ alignItems: "center" }}>
+    <div className={styles.app}>
       <Resume resume={resume} />
     </div>
   )
