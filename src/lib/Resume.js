@@ -5,6 +5,7 @@ import MainInformation from "./components/main_information/MainInformation";
 import Section from "./components/section/Section";
 import WorkExperience from "./components/work_experience/WorkExperience";
 import Certificate from "./components/certificate/Certificate";
+import Education from "./components/education/Education";
 
 const Resume = ({ resume }) => (
   <div className={styles.resume}>
@@ -21,6 +22,13 @@ const Resume = ({ resume }) => (
         {
           resume.certificates.map(cert =>
             <Certificate certificate={cert} key={cert.key()} />
+          )
+        }
+      </Section>
+      <Section title="Educação">
+        {
+          resume.education.map(edu =>
+            <Education education={edu} key={edu.key} />
           )
         }
       </Section>

@@ -6,11 +6,13 @@ import styles from "./style.module.css"
 import reset from "./reset.module.css"
 import MainInformation from './lib/models/MainInformation.model.js';
 import WorkExperience from './lib/models/WorkExperience.model.js';
+import Certificate from './lib/models/Certificate.model.js';
+import Education from './lib/models/Education.model.js';
 
 import main_data from "./resume_data/main_information.json"
 import work_experiences from "./resume_data/work_experiences.json"
 import certificates from "./resume_data/certificates.json"
-import Certificate from './lib/models/Certificate.model.js';
+import education from "./resume_data/education.json"
 
 
 function App() {
@@ -21,9 +23,12 @@ function App() {
     resume.addWorkExperience(new WorkExperience(wexp))
   }
 
-  console.log(certificates)
   for (let cert of certificates) {
     resume.addCertificate(new Certificate(cert))
+  }
+
+  for (let edu of education) {
+    resume.addEducation(new Education(edu))
   }
 
   return (

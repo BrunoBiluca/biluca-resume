@@ -2,7 +2,7 @@ import HighlightText from "../highlight_text/HighlightText";
 import styles from "./Section.module.css"
 
 const Section = (props) => (
-  <div className={styles.section}>
+  <section className={styles.section}>
     <h2><HighlightText text={props.title} /></h2>
     <div className={styles.sectionContent}>
       {
@@ -13,7 +13,7 @@ const Section = (props) => (
         )
       }
     </div>
-  </div>
+  </section>
 )
 
 export default Section;

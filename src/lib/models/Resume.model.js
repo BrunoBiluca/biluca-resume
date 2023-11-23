@@ -2,6 +2,7 @@ export default class Resume {
   mainInformation
   workExperiences = []
   certificates = []
+  education = []
 
   constructor(mainInformation) {
     this.mainInformation = mainInformation
@@ -14,6 +15,11 @@ export default class Resume {
 
   addCertificate(entry) {
     this.certificates.push(entry)
+    return this
+  }
+
+  addEducation(entry){
+    this.education.push(entry)
     return this
   }
 }
