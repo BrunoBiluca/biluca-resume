@@ -27,7 +27,7 @@ export default class WorkExperience {
   }
 
   hasCompany() {
-    return isNullOrEmpty(this.company)
+    return !isNullOrEmpty(this.company)
   }
 
   period() {

@@ -1,5 +1,3 @@
-import HighlightText from "../highlight_text/HighlightText";
-
 export const CompanyInfo = (props) => {
   let { company, companyUrl } = props;
 
@@ -8,11 +6,11 @@ export const CompanyInfo = (props) => {
       {` em `}
       <a
         href={companyUrl}
-        style={{ fontStyle: "italic" }}
+        style={{ fontStyle: "italic", color: "#666" }}
         target="_blank"
         rel="noreferrer"
       >
-        <HighlightText text={company} />
+        {company}
       </a>
     </>
   );
