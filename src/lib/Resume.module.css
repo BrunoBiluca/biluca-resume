@@ -1,18 +1,16 @@
-@import url("./Theme.module.css");
-
 .resume {
   font-family: var(--font-main-family);
   color: var(--font-main-color);
 }
 
 h1 {
-  font-size: 2em;
+  font-size: var(--font-size-title-1);
   font-weight: bold;
 }
 
 p {
-  font-size: 12px;
-  line-height: 1;
+  font-size: var(--font-size-text);
+  line-height: var(--text-line-height);
 }
 
 @page {

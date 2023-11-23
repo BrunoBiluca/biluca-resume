@@ -1,5 +1,3 @@
-@import url("../../Theme.module.css");
-
 .highlightText {
   color: var(--font-highlight-color);
   font-weight: bold;

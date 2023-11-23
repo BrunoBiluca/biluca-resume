@@ -6,9 +6,12 @@ import Section from "./components/section/Section";
 import WorkExperience from "./components/work_experience/WorkExperience";
 import Certificate from "./components/certificate/Certificate";
 import Education from "./components/education/Education";
+import Theme from "./Theme";
 
-const Resume = ({ resume }) => (
-  <div className={styles.resume}>
+function Resume({ resume, theme }) {
+  let usedTheme = theme != null ? theme : new Theme()
+
+  return <div className={styles.resume} style={usedTheme.css()} >
     <Page>
       <MainInformation info={resume.mainInformation} />
       <Section title="Últimas experiências">
@@ -27,13 +30,13 @@ const Resume = ({ resume }) => (
       </Section>
       <Section title="Educação">
         {
-          resume.education.map(edu => 
+          resume.education.map(edu =>
             <Education education={edu} key={edu.key()} />
           )
         }
       </Section>
     </Page>
   </div>
-);
+}
 
 export default Resume;

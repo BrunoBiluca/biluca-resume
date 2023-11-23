@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import { Resume } from "./lib";
-import ResumeModel from "./lib/models/Resume.model.js"
 import styles from "./style.module.css"
 import reset from "./reset.module.css"
+
+import { Resume } from "./lib";
+import Theme from './lib/Theme.js';
+import ResumeModel from "./lib/models/Resume.model.js"
 import MainInformation from './lib/models/MainInformation.model.js';
 import WorkExperience from './lib/models/WorkExperience.model.js';
 import Certificate from './lib/models/Certificate.model.js';
@@ -31,9 +33,12 @@ function App() {
     resume.addEducation(new Education(edu))
   }
 
+  let theme = new Theme()
+  theme.fontHighlightColor = "#bf612c"
+
   return (
     <div className={styles.app}>
-      <Resume resume={resume} />
+      <Resume resume={resume} theme={theme}/>
     </div>
   )
 }
