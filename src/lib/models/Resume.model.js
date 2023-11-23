@@ -1,31 +1,20 @@
+import ResumeFactory from "../ResumeFactory"
+import Section from "./Section.model"
+
 export default class Resume {
   mainInformation
-  workExperiences = []
-  certificates = []
-  education = []
-  skills = []
+  sections = []
 
-  constructor(mainInformation) {
-    this.mainInformation = mainInformation
-  }
+  constructor(data) {
+    var factory = new ResumeFactory()
+    this.mainInformation = factory.createEntry("MainInformation", data["main_information"])
 
-  addWorkExperience(entry) {
-    this.workExperiences.push(entry)
-    return this
-  }
-
-  addCertificate(entry) {
-    this.certificates.push(entry)
-    return this
-  }
-
-  addEducation(entry){
-    this.education.push(entry)
-    return this
-  }
-
-  addSkill(entry){
-    this.skills.push(entry)
-    return this
+    for (let sectionData of data["sections"]) {
+      let section = new Section(sectionData["title"])
+      for (let entry of sectionData["entries"]) {
+        section.add(factory.createEntry(sectionData["type"], entry))
+      }
+      this.sections.push(section)
+    }
   }
 }
