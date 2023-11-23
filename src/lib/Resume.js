@@ -27,8 +27,8 @@ const Resume = ({ resume }) => (
       </Section>
       <Section title="Educação">
         {
-          resume.education.map(edu =>
-            <Education education={edu} key={edu.key} />
+          resume.education.map(edu => 
+            <Education education={edu} key={edu.key()} />
           )
         }
       </Section>
