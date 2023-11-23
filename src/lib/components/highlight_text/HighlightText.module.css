@@ -1,0 +1,5 @@
+@import url("../../Theme.module.css");
+
+.highlight_text {
+  color: var(--font-highlight-color);
+}

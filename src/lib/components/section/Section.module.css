@@ -1,0 +1,12 @@
+@import url("../../Theme.module.css");
+
+.section h2 {
+    border-bottom: 3px solid var(--font-highlight-color);
+    margin: .5em 0;
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+.section .sectionContent {
+    padding-left: 8px;   
+}
