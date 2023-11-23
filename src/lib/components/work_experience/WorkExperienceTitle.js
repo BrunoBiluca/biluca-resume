@@ -1,10 +1,11 @@
 import { CompanyInfo } from "./CompanyInfo";
+import styles from "./WorkExperience.module.css"
 
-export const WorkExperienceTitle = (props) => {
+export default function WorkExperienceTitle(props) {
   let { workExperience } = props;
 
   return (
-    <h3>
+    <h3 className={styles.workExperienceTitle}>
       {workExperience.title}
       {
         workExperience.hasCompany()

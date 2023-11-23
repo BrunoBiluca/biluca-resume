@@ -1,9 +1,9 @@
 import FlexTwoColumns, { Main, Side } from "../containers/FlexTwoColumns";
 import HighlightText from "../highlight_text/HighlightText";
 import styles from "./WorkExperience.module.css"
-import { WorkExperienceTitle } from "./WorkExperienceTitle";
+import WorkExperienceTitle from "./WorkExperienceTitle";
 
-export const WorkExperience = ({ workExperience }) => {
+export default function WorkExperience({ workExperience }) {
   return (
     <FlexTwoColumns>
       <Main>
@@ -13,10 +13,10 @@ export const WorkExperience = ({ workExperience }) => {
         </div>
       </Main>
       <Side>
-        < div className={styles.workExperienceSideContent} >
+        <div className={styles.workExperienceSideContent} >
           <p><HighlightText text={workExperience.period()} /></p>
           <p><HighlightText text={workExperience.companyLocation} /></p>
-        </div >
+        </div>
       </Side>
     </FlexTwoColumns>
   );
