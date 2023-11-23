@@ -1,10 +1,10 @@
 import { getChildByType } from "../../helpers/ComponentExtensions"
 
-export default function FlexTwoColumns({ children }) {
+export default function FlexTwoColumns({ style, children }) {
   let main = getChildByType(children, Main)
   let side = getChildByType(children, Side)
 
-  return <div style={{ display: "flex", gap: "1em" }}>
+  return <div style={{ display: "flex", gap: "1em", ...style }}>
     {main}
     {side}
   </div>

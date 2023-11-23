@@ -15,6 +15,8 @@ import main_data from "./resume_data/main_information.json"
 import work_experiences from "./resume_data/work_experiences.json"
 import certificates from "./resume_data/certificates.json"
 import education from "./resume_data/education.json"
+import skills from "./resume_data/skills.json"
+import Skill from './lib/models/Skill.model.js';
 
 
 function App() {
@@ -33,12 +35,13 @@ function App() {
     resume.addEducation(new Education(edu))
   }
 
-  let theme = new Theme()
-  theme.fontHighlightColor = "#bf612c"
+  for (let skill of skills) {
+    resume.addSkill(new Skill(skill))
+  }
 
   return (
     <div className={styles.app}>
-      <Resume resume={resume} theme={theme}/>
+      <Resume resume={resume} />
     </div>
   )
 }

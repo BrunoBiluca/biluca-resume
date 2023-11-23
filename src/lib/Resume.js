@@ -7,6 +7,7 @@ import WorkExperience from "./components/work_experience/WorkExperience";
 import Certificate from "./components/certificate/Certificate";
 import Education from "./components/education/Education";
 import Theme from "./Theme";
+import Skill from "./components/skill/Skill";
 
 function Resume({ resume, theme }) {
   let usedTheme = theme != null ? theme : new Theme()
@@ -32,6 +33,13 @@ function Resume({ resume, theme }) {
         {
           resume.education.map(edu =>
             <Education education={edu} key={edu.key()} />
+          )
+        }
+      </Section>
+      <Section title="Habilidades">
+        {
+          resume.skills.map(skill =>
+            <Skill skill={skill} key={skill.key()} />
           )
         }
       </Section>

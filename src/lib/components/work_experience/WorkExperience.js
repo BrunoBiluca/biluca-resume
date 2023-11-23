@@ -5,7 +5,7 @@ import WorkExperienceTitle from "./WorkExperienceTitle";
 
 export default function WorkExperience({ workExperience }) {
   return (
-    <FlexTwoColumns>
+    <FlexTwoColumns style={{ margin: "1em 0" }}>
       <Main>
         <WorkExperienceTitle workExperience={workExperience} />
         <div className={styles.workExperienceContent}>
