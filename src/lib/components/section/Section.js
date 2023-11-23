@@ -5,7 +5,13 @@ const Section = (props) => (
   <div className={styles.section}>
     <h2><HighlightText text={props.title} /></h2>
     <div className={styles.sectionContent}>
-      {props.children}
+      {
+        props.children?.map(c =>
+          <div key={c} style={{ margin: "1em 0" }}>
+            {c}
+          </div>
+        )
+      }
     </div>
   </div>
 )

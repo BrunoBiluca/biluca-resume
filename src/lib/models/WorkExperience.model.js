@@ -22,6 +22,9 @@ export default class WorkExperience {
     this.companyLocation = data["company_location"]
   }
 
+  key() {
+    return this.title + this.company + this.period()
+  }
 
   hasCompany() {
     return isNullOrEmpty(this.company)

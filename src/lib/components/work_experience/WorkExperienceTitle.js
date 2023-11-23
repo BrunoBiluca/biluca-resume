@@ -14,7 +14,6 @@ export const WorkExperienceTitle = (props) => {
           companyUrl={workExperience.companyUrl}
         />
       }
-
     </h3>
   );
 };

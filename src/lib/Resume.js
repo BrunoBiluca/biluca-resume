@@ -11,8 +11,8 @@ const Resume = ({ resume }) => (
       <MainInformation info={resume.mainInformation} />
       <Section title="Últimas experiências">
         {
-          resume.workExperiences.map(wexp =>
-            <WorkExperience workExperience={wexp} key={wexp.title} />
+          resume.workExperiences.map((wexp, idx) =>
+            <WorkExperience workExperience={wexp} key={wexp.key()} />
           )
         }
       </Section>
