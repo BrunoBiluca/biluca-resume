@@ -75,13 +75,13 @@ const Website = ({ url }) => (
   </InLine>
 )
 
-const Mail = ({ mailto, label }) => (
+const Mail = ({ email, label }) => (
   <InLine>
     <GrMail style={{ marginRight: ".5em" }} />
-    <span style={{ textDecorationLine: "underline" }}
+    <span style={{ textDecorationLine: "underline", cursor: "pointer" }}
       to='#'
       onClick={(e) => {
-        window.location = mailto;
+        window.location = "mailto:" + email;
         e.preventDefault();
       }}
     >
