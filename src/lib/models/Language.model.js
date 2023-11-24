@@ -3,4 +3,8 @@ export default class Language {
     this.label = data["label"]
     this.level = data["level"]
   }
+
+  key(){
+    return this.label + this.level
+  }
 }

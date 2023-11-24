@@ -1,0 +1,17 @@
+.gameContainer {
+  display: block; 
+  text-decoration: none; 
+  margin: 15px 0;
+  color: var(--font-main-color)
+}
+
+.title {
+  margin: 2px 0; 
+  font-size: 12px; 
+  font-weight: bold
+}
+
+.description {
+  margin: 2px 0; 
+  font-size: 10px;
+}

@@ -9,10 +9,11 @@ import CertificateModel from "./models/Certificate.model"
 import Education from "./components/education/Education"
 import EducationModel from "./models/Education.model"
 import Language from "./models/Language.model"
+import GameModel from "./models/Game.model"
+import Game from "./components/game/Game"
 
 export default class ResumeFactory {
   createEntry(type, data) {
-    console.log(type)
     if (type == "MainInformation")
       return <MainInformation info={new MainInformationModel(data)} />
 
@@ -38,7 +39,12 @@ export default class ResumeFactory {
 
     if (type == "Languages") {
       let language = new Language(data)
-      return <p><strong>{language.label} ({language.level})</strong></p>
+      return <p key={language.key()}><strong>{language.label} ({language.level})</strong></p>
+    }
+
+    if (type == "Game") {
+      let game = new GameModel(data)
+      return <Game key={game.key()} game={game} />
     }
   }
 }
