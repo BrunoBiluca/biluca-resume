@@ -8,6 +8,7 @@ import Certificate from "./components/certificate/Certificate"
 import CertificateModel from "./models/Certificate.model"
 import Education from "./components/education/Education"
 import EducationModel from "./models/Education.model"
+import Language from "./models/Language.model"
 
 export default class ResumeFactory {
   createEntry(type, data) {
@@ -33,6 +34,11 @@ export default class ResumeFactory {
     if (type == "Education") {
       let education = new EducationModel(data)
       return <Education key={education.key()} education={education} />
+    }
+
+    if (type == "Languages") {
+      let language = new Language(data)
+      return <p><strong>{language.label} ({language.level})</strong></p>
     }
   }
 }
