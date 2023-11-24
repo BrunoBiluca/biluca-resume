@@ -1,0 +1,15 @@
+.contactInformation {
+  margin-block: 1em;
+}
+
+.contactInformation:first-child:first{
+  margin-right: 1em;
+}
+
+.contactInformation,
+.contactInformation a,
+.contactInformation span,
+.contactInformation p {
+  color: var(--font-main-color);
+  font-size: var(--font-size-text);
+}

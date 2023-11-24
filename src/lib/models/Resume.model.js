@@ -1,4 +1,5 @@
 import ResumeFactory from "../ResumeFactory"
+import ContactInfo from "./ContactInfo.model"
 import Section from "./Section.model"
 
 export default class Resume {
@@ -8,6 +9,8 @@ export default class Resume {
   constructor(data) {
     var factory = new ResumeFactory()
     this.mainInformation = factory.createEntry("MainInformation", data["main_information"])
+
+    this.contactInfo = new ContactInfo(data["contact_information"])
 
     for (let sectionData of data["sections"]) {
       let section = new Section(sectionData["title"])
