@@ -1,16 +1,16 @@
 import MainInformation from "./components/main_information/MainInformation"
 import MainInformationModel from "./models/MainInformation.model"
-import WorkExperience from "./components/work_experience/WorkExperience"
+import WorkExperience from "./themes/one_pager/components/work_experience/WorkExperience"
 import WorkExperienceModel from "./models/WorkExperience.model"
-import Skill from "./components/skill/Skill"
+import Skill from "./themes/one_pager/components/skill/Skill"
 import SkillModel from "./models/Skill.model"
-import Certificate from "./components/certificate/Certificate"
+import Certificate from "./themes/one_pager/components/certificate/Certificate"
 import CertificateModel from "./models/Certificate.model"
-import Education from "./components/education/Education"
+import Education from "./themes/one_pager/components/education/Education"
 import EducationModel from "./models/Education.model"
 import Language from "./models/Language.model"
 import GameModel from "./models/Game.model"
-import Game from "./components/game/Game"
+import Game from "./themes/one_pager/components/game/Game"
 
 export default class ResumeFactory {
   createEntry(type, data) {

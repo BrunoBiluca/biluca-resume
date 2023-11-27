@@ -7,7 +7,7 @@ export default function FlexTwoColumns({ style, children }) {
   if (!hasChildByType(children, Side))
     console.warn("Componente <Side> não foi configurado para o <FlexTwoColumns>")
 
-  return <div style={{ display: "flex", gap: "1em", ...style }}>
+  return <div style={{ display: "grid", gridTemplateColumns: "1fr 3fr", gap: "1em", ...style }}>
     {children}
   </div>
 }

@@ -4,7 +4,6 @@ import styles from "./style.module.css"
 import reset from "./reset.module.css"
 
 import { Resume } from "./lib";
-import ResumeModel from "./lib/models/Resume.model.js"
 
 function App() {
   let [resume, setResume] = useState(null)
@@ -13,8 +12,7 @@ function App() {
     async function fetchResumeData() {
       const request = await fetch("./resume_data/resume.json")
       const resumeJson = await request.json()
-      console.log(resumeJson)
-      setResume(new ResumeModel(resumeJson))
+      setResume(resumeJson)
     }
     fetchResumeData()
   }, [])
@@ -23,7 +21,7 @@ function App() {
     {
       resume &&
       <div className={styles.app}>
-        <Resume resume={resume} />
+        <Resume data={resume} />
       </div>
     }
   </>

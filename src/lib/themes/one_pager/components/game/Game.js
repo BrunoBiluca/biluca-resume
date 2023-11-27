@@ -1,4 +1,4 @@
-import ImageSmall from "../images/ImageSmall";
+import ImageSmall from "../../../../components/images/ImageSmall";
 import styles from "./Game.module.css"
 import { FaGithub } from 'react-icons/fa';
 

@@ -5,13 +5,13 @@ import Github from "./models/Github.model"
 import LinkedIn from "./models/LinkedIn.model"
 import Website from "./models/Website.model"
 
-export default class ModelFac {
+export default class ModelsFactory {
 
   static _i
 
   static instance() {
     if (this._i == null)
-      this._i = new ModelFac()
+      this._i = new ModelsFactory()
     return this._i
   }
 

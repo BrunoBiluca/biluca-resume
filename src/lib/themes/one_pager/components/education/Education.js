@@ -1,5 +1,5 @@
-import FlexTwoColumns, { Main, Side } from "../containers/FlexTwoColumns"
-import HighlightText from "../highlight_text/HighlightText"
+import FlexTwoColumns, { Main, Side } from "../../../../components/containers/FlexTwoColumns"
+import HighlightText from "../../../../components/highlight_text/HighlightText"
 import styles from "./Education.module.css"
 
 export default function Education({ education }) {
