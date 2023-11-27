@@ -1,21 +1,22 @@
-import ResumeFactory from "../ResumeFactory"
-import ContactInfo from "./ContactInfo.model"
+import ModelsFactory from "../core/ModelsFactory"
 import Section from "./Section.model"
 
 export default class Resume {
   mainInformation
+  contactInfo
   sections = []
 
   constructor(data) {
-    var factory = new ResumeFactory()
-    this.mainInformation = factory.createEntry("MainInformation", data["main_information"])
+    this.type = "Resume"
+    var factory = ModelsFactory.i()
+    this.mainInformation = factory.instantiate(data["main_information"], "MainInformation")
 
-    this.contactInfo = new ContactInfo(data["contact_information"])
+    this.contactInfo = factory.instantiate(data["contact_information"], "ContactInformation")
 
     for (let sectionData of data["sections"]) {
       let section = new Section(sectionData)
       for (let entry of sectionData["entries"]) {
-        section.add(factory.createEntry(sectionData["type"], entry))
+        section.add(factory.instantiate(entry, section.type))
       }
       this.sections.push(section)
     }

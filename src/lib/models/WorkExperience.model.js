@@ -1,7 +1,7 @@
 import { isNullOrEmpty } from "../helpers/StringExtensions"
 import Entry from "./Entry.model"
 
-export default class WorkExperience extends Entry{
+export default class WorkExperience extends Entry {
 
   title
   periodBegin

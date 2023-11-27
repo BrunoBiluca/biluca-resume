@@ -1,11 +1,15 @@
+import React from "react";
+import ComponentsFactory from "../../core/ComponentsFactory";
 import HighlightText from "../highlight_text/HighlightText";
 import styles from "./Section.module.css"
 
 const Section = ({ section, padding }) => (
-  <section className={styles.section}>
-    <h2><HighlightText text={section.title} /></h2>
+  <section>
+    <h1 className={styles.sectionTitle}><HighlightText text={section.title} /></h1>
     <div className={styles.sectionContent} style={{ "padding": padding }}>
-      {section.entries}
+      {section.entries.map(
+        e => <React.Fragment key={e.key()}>{ComponentsFactory.i().instantiate(e)}</React.Fragment>
+      )}
     </div>
   </section>
 )

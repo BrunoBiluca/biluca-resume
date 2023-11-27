@@ -8,6 +8,16 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: var(--font-size-title-2);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: var(--font-size-title-3);
+  font-weight: bold;
+}
+
 p {
   font-size: var(--font-size-text);
   line-height: var(--text-line-height);

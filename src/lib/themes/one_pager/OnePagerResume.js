@@ -1,14 +1,12 @@
-import Resume from "../../models/Resume.model"
 import Page from "../../components/page/Page"
 import GridColumns, { Main, Side } from "../../components/containers/GridColumns"
 import Section from "../../components/section/Section"
 import ContactInformation from "../../components/contact_information/ContactInformation"
+import MainInformation from "../../components/main_information/MainInformation"
 
-export default function OnePagerResume({data}) {
-  var resume = new Resume(data)
-
+export default function OnePagerResume({ resume }) {
   return <Page>
-    {resume.mainInformation}
+    <MainInformation info={resume.mainInformation} />
     <GridColumns>
       <Side>
         <ContactInformation contactInfo={resume.contactInfo} />

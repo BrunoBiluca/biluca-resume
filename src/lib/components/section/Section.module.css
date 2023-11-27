@@ -1,8 +1,7 @@
-.section h2 {
+.sectionTitle {
     border-bottom: 3px solid var(--font-highlight-color);
     margin: .5em 0;
     padding-left: 8px;
-    font-size: 18px;
 }
 
 .section .sectionContent {

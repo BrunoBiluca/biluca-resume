@@ -1,12 +1,12 @@
 import styles from "./ContactInformation.module.css"
-import { ContactInfoFactory } from "./ContactInfoFactory";
+import ComponentsFactory from "../../core/ComponentsFactory";
 
 const ContactInformation = ({ contactInfo }) => (
   <div style={{ margin: "0.5em 0" }}>
     {
       contactInfo.entries.map(contact =>
         <div key={contact.key()} className={styles.contactInformation}>
-          {ContactInfoFactory(contact)}
+          {ComponentsFactory.i().instantiate(contact)}
         </div>
       )
     }

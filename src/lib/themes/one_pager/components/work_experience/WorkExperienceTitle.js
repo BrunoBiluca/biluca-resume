@@ -5,7 +5,7 @@ export default function WorkExperienceTitle(props) {
   let { workExperience } = props;
 
   return (
-    <h3 className={styles.workExperienceTitle}>
+    <h2 className={styles.workExperienceTitle}>
       {workExperience.title}
       {
         workExperience.hasCompany()
@@ -15,6 +15,6 @@ export default function WorkExperienceTitle(props) {
           companyUrl={workExperience.companyUrl}
         />
       }
-    </h3>
+    </h2>
   );
 };
