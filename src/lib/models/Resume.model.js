@@ -1,5 +1,4 @@
 import ModelsFactory from "../core/ModelsFactory"
-import Section from "./Section.model"
 
 export default class Resume {
   mainInformation
@@ -14,9 +13,9 @@ export default class Resume {
     this.contactInfo = factory.instantiate(data["contact_information"], "ContactInformation")
 
     for (let sectionData of data["sections"]) {
-      let section = new Section(sectionData)
+      let section = factory.instantiate(sectionData, "Section")
       for (let entry of sectionData["entries"]) {
-        section.add(factory.instantiate(entry, section.type))
+        section.add(factory.instantiate(entry, sectionData["type"]))
       }
       this.sections.push(section)
     }

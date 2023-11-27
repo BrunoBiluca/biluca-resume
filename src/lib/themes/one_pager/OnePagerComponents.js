@@ -32,9 +32,4 @@ export default class OnePagerComponents extends InstantiationMapper {
     mapper["LinkedIn"] = (data) => LinkedIn({ profile: data.profile })
     mapper["Website"] = (data) => Website({ url: data.url })
   }
-
-  instantiate(data) {
-    let type = data["type"]
-    return this.mapper[type](data)
-  }
 }

@@ -18,12 +18,12 @@ function App() {
   }, [])
 
   return <>
-    {
-      resume &&
-      <div className={styles.app}>
+    <div className={styles.app}>
+      {
+        resume &&
         <Resume data={resume} />
-      </div>
-    }
+      }
+    </div>
   </>
 }
 

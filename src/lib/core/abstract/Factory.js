@@ -5,7 +5,7 @@ export default class Factory {
     this._i = this._on_create(instantiationMapper)
   }
 
-  static _on_create(_mapper){
+  static _on_create(_mapper) {
     throw new Error("You have to implement the method <_on_create>!")
   }
 
@@ -20,9 +20,11 @@ export default class Factory {
   }
 
   instantiate(data, type = null) {
-    if (!data["type"])
-      data["type"] = type
+    if (type === null)
+      type = data["type"]
 
-    return this.mapper.instantiate(data)
+    if (!type)
+      console.log(data)
+    return this.mapper.instantiate(type, data)
   }
 }

@@ -1,8 +1,16 @@
 export default class Entry {
 
   constructor(data) {
-    this.type = data["type"]
-    this.theme = data["theme"]
+    this.constructor.name
+    this.type = data["type"] ? data["type"] : this.constructor.name
+
+    let themeMapper = data["theme_mapper"]
+    if (themeMapper) {
+      this.theme = themeMapper(data["theme"])
+    }
+    else {
+      this.theme = data["theme"]
+    }
   }
 
   key() {

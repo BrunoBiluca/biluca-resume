@@ -14,28 +14,30 @@ import Game from "../../models/Game.model"
 import Language from "../../models/Language.model"
 import ContactInfo from "../../models/ContactInfo.model"
 import InstantiationMapper from "../../core/abstract/InstantiationMapper"
+import Section from "../../models/Section.model"
 
 export default class OnePagerModels extends InstantiationMapper {
   _create(mapper) {
-    mapper["Resume"] = Resume
-    mapper["MainInformation"] = MainInformation
-    mapper["WorkExperience"] = WorkExperience
-    mapper["Skill"] = Skill
-    mapper["Certificate"] = Certificate
-    mapper["Education"] = Education
-    mapper["Language"] = Language
-    mapper["Game"] = Game
-    mapper["ContactInformation"] = ContactInfo
-    mapper["Mail"] = Mail
-    mapper["Phone"] = Phone
-    mapper["Location"] = Location
-    mapper["Github"] = Github
-    mapper["LinkedIn"] = LinkedIn
-    mapper["Website"] = Website
-  }
-
-  instantiate(data) {
-    let type = data["type"]
-    return new this.mapper[type](data)
+    mapper["Resume"] = (d) => new Resume(d)
+    mapper["Section"] = (d) => {
+      d["theme_mapper"] = (theme) => {
+        return { onSide: theme && theme["place"] === "side" }
+      }
+      return new Section(d)
+    }
+    mapper["MainInformation"] = (d) => new MainInformation(d)
+    mapper["WorkExperience"] = (d) => new WorkExperience(d)
+    mapper["Skill"] = (d) => new Skill(d)
+    mapper["Certificate"] = (d) => new Certificate(d)
+    mapper["Education"] = (d) => new Education(d)
+    mapper["Language"] = (d) => new Language(d)
+    mapper["Game"] = (d) => new Game(d)
+    mapper["ContactInformation"] = (d) => new ContactInfo(d)
+    mapper["Mail"] = (d) => new Mail(d)
+    mapper["Phone"] = (d) => new Phone(d)
+    mapper["Location"] = (d) => new Location(d)
+    mapper["Github"] = (d) => new Github(d)
+    mapper["LinkedIn"] = (d) => new LinkedIn(d)
+    mapper["Website"] = (d) => new Website(d)
   }
 }

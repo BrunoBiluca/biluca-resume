@@ -12,7 +12,7 @@ export default function OnePagerResume({ resume }) {
         <ContactInformation contactInfo={resume.contactInfo} />
         {
           resume.sections
-            ?.filter(s => s.theme && s.theme["place"] === "side")
+            ?.filter(s => s.theme["onSide"])
             .map(sec =>
               <Section key={sec.key()} section={sec} padding={0} />
             )
@@ -21,7 +21,7 @@ export default function OnePagerResume({ resume }) {
       <Main>
         {
           resume.sections
-            ?.filter(s => !s.theme)
+            ?.filter(s => !s.theme["onSide"])
             .map(sec =>
               <Section key={sec.key()} section={sec} />
             )

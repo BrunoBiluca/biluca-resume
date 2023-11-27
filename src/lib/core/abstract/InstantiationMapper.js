@@ -10,7 +10,7 @@ export default class InstantiationMapper {
     throw new Error("You have to implement the method <_create>!")
   }
 
-  instantiate(data) {
-    throw new Error("You have to implement the method <instantiate>!")
+  instantiate(type, data) {
+    return this.mapper[type](data)
   }
 }
