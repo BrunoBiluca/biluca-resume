@@ -1,5 +1,8 @@
-export default class Game {
+import Entry from "./Entry.model"
+
+export default class Game extends Entry {
   constructor(data) {
+    super(data)
     this.name = data["name"]
     this.description = data["description"]
     this.role = data["role"]

@@ -1,4 +1,6 @@
-export default class Education {
+import Entry from "./Entry.model"
+
+export default class Education extends Entry {
   title
   institution
   periodBegin
@@ -7,6 +9,7 @@ export default class Education {
   description
 
   constructor(data) {
+    super(data)
     this.title = data["title"]
     this.institution = data["institution"]
     this.periodBegin = data["period_begin"]

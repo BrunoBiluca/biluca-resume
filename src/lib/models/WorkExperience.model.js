@@ -1,6 +1,7 @@
 import { isNullOrEmpty } from "../helpers/StringExtensions"
+import Entry from "./Entry.model"
 
-export default class WorkExperience {
+export default class WorkExperience extends Entry{
 
   title
   periodBegin
@@ -12,6 +13,7 @@ export default class WorkExperience {
   companyLocation
 
   constructor(data) {
+    super(data)
     this.title = data["title"]
     this.periodBegin = data["period_begin"]
     this.periodEnd = data["period_end"]

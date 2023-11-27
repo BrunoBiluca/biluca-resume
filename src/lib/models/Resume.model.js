@@ -13,7 +13,7 @@ export default class Resume {
     this.contactInfo = new ContactInfo(data["contact_information"])
 
     for (let sectionData of data["sections"]) {
-      let section = new Section(sectionData["title"])
+      let section = new Section(sectionData)
       for (let entry of sectionData["entries"]) {
         section.add(factory.createEntry(sectionData["type"], entry))
       }

@@ -1,11 +1,18 @@
-export default class Section {
+import Entry from "./Entry.model"
+
+export default class Section extends Entry {
   entries = []
 
-  constructor(title) {
-    this.title = title
+  constructor(data) {
+    super(data)
+    this.title = data["title"]
   }
 
   add(entry) {
     this.entries.push(entry)
+  }
+
+  key() {
+    return this.title
   }
 }
