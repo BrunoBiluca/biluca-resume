@@ -1,4 +1,4 @@
-import ModelFac from "./ModelFac"
+import ModelFac from "../ModelFac"
 
 export default class ContactInfo {
   entries = []

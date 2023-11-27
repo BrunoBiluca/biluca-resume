@@ -1,9 +1,9 @@
-import Mail from "./Mail"
-import Location from "./Location.model"
-import Phone from "./Phone.model"
-import Github from "./Github.model"
-import LinkedIn from "./LinkedIn.model"
-import Website from "./Website.model"
+import Mail from "./models/Mail.model"
+import Location from "./models/Location.model"
+import Phone from "./models/Phone.model"
+import Github from "./models/Github.model"
+import LinkedIn from "./models/LinkedIn.model"
+import Website from "./models/Website.model"
 
 export default class ModelFac {
 
