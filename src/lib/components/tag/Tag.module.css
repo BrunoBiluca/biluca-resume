@@ -1,4 +1,4 @@
-.skillLabel {
+.tag {
   font-size: 12px;
   padding: 4px 8px;
   background: var(--font-highlight-color);
@@ -9,7 +9,7 @@
   display: inline-block;
 }
 
-.skillLabelHover {
+.tagHover {
   font-size: 12px;
   padding: 4px 8px;
   background: white;

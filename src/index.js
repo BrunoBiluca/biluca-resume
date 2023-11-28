@@ -17,14 +17,14 @@ function App() {
     fetchResumeData()
   }, [])
 
-  return <>
+  return (
     <div className={styles.app}>
       {
         resume &&
         <Resume data={resume} />
       }
     </div>
-  </>
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

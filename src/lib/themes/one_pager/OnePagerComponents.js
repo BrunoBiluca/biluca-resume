@@ -1,35 +1,38 @@
 import OnePagerResume from "./OnePagerResume"
-import Resume from "../../models/Resume.model"
 import MainInformation from "../../components/main_information/MainInformation"
-import MainInformationModel from "../../models/MainInformation.model"
-import Skill from "./components/skill/Skill"
-import SkillModel from "../../models/Skill.model"
-import WorkExperience from "./components/work_experience/WorkExperience"
-import WorkExperienceModel from "../../models/WorkExperience.model"
-import Education from "./components/education/Education"
-import EducationModel from "../../models/Education.model"
+import WorkExperience from "./components/WorkExperience"
+import Education from "./components/Education"
 import Language from "./components/Language"
-import LanguageModel from "../../models/Language.model"
 import Game from "./components/game/Game"
-import GameModel from "../../models/Game.model"
 import { Mail } from "../../components/contact_information/Mail"
-import MailModel from "../../models/Mail.model"
 import { Phone } from "../../components/contact_information/Phone"
-import PhoneModel from "../../models/Phone.model"
 import { Location } from "../../components/contact_information/Location"
-import LocationModel from "../../models/Location.model"
 import { Github } from "../../components/contact_information/Github"
-import GithubModel from "../../models/Github.model"
 import { LinkedIn } from "../../components/contact_information/LinkedIn"
-import LinkedInModel from "../../models/LinkedIn.model"
 import { Website } from "../../components/contact_information/Website"
-import WebsiteModel from "../../models/Website.model"
-import Certificate from "./components/certificate/Certificate"
-import CertificateModel from "../../models/Certificate.model"
+import Certificate from "./components/Certificate"
 import ContactInformation from "../../components/contact_information/ContactInformation"
-import ContactInfo from "../../models/ContactInfo.model"
 import BaseComponent from "../../core/BaseComponent"
 import ComponentsFactory from "../../core/ComponentsFactory"
+
+import {
+  Certificate as CertificateModel,
+  ContactInfo,
+  Education as EducationModel,
+  Game as GameModel,
+  Github as GithubModel,
+  Language as LanguageModel,
+  LinkedIn as LinkedInModel,
+  Location as LocationModel,
+  Mail as MailModel,
+  MainInformation as MainInformationModel,
+  Phone as PhoneModel,
+  Resume,
+  Skill as SkillModel,
+  Website as WebsiteModel,
+  WorkExperience as WorkExperienceModel
+} from "../../models"
+import Tag from "../../components/tag/Tag"
 
 export default class OnePagerComponents extends ComponentsFactory {
 
@@ -43,7 +46,7 @@ export default class OnePagerComponents extends ComponentsFactory {
     m["WorkExperience"]
       = this._map(WorkExperience, WorkExperienceModel, (m) => ({ workExperience: m }))
     m["Skill"]
-      = this._map(Skill, SkillModel, (m) => ({ skill: m }))
+      = this._map(Tag, SkillModel, (m) => ({ label: m.label }))
     m["Certificate"]
       = this._map(Certificate, CertificateModel, (m) => ({ certificate: m }))
     m["Education"]

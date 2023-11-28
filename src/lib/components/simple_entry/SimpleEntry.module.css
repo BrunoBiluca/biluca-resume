@@ -1,4 +1,4 @@
-.certificateTitle {
+.title {
   margin: 0;
   margin-bottom: .5em;
   margin-right: 1em;
@@ -6,7 +6,7 @@
   font-size: var(--font-size-title-1);
 }
 
-.certificateSideContent p {
+.content p {
   margin-bottom: 0.5em;
   font-style: italic;
   text-align: right;
