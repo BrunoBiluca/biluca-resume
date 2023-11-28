@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Skills.module.css"
 
-const Skill = (props) => {
+const Skill = ({ skill }) => {
   let [currState, setCurrState] = useState(styles.skillLabel);
   return (
     <span
@@ -9,7 +9,7 @@ const Skill = (props) => {
       onMouseLeave={() => setCurrState(styles.skillLabel)}
       className={currState}
     >
-      {props.skill.label}
+      {skill.label}
     </span>
   )
 }

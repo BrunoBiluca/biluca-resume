@@ -1,18 +1,17 @@
 import Page from "../../components/page/Page"
-import GridColumns, { Main, Side } from "../../components/containers/GridColumns"
+import FlexTwoColumns, { Main, Side } from "../../components/containers/FlexTwoColumns"
 import Section from "../../components/section/Section"
-import ContactInformation from "../../components/contact_information/ContactInformation"
-import MainInformation from "../../components/main_information/MainInformation"
+import ComponentsFactory from "../../core/ComponentsFactory"
 
 export default function OnePagerResume({ resume }) {
   return <Page>
-    <MainInformation info={resume.mainInformation} />
-    <GridColumns>
+    {ComponentsFactory.i().render(resume.mainInformation)}
+    <FlexTwoColumns>
       <Side>
-        <ContactInformation contactInfo={resume.contactInfo} />
+        {ComponentsFactory.i().render(resume.contactInfo)}
         {
           resume.sections
-            ?.filter(s => s.theme["onSide"])
+            ?.filter(s => s.theme && s.theme["place"] === "side")
             .map(sec =>
               <Section key={sec.key()} section={sec} padding={0} />
             )
@@ -21,12 +20,12 @@ export default function OnePagerResume({ resume }) {
       <Main>
         {
           resume.sections
-            ?.filter(s => !s.theme["onSide"])
+            ?.filter(s => !s.theme)
             .map(sec =>
               <Section key={sec.key()} section={sec} />
             )
         }
       </Main>
-    </GridColumns>
+    </FlexTwoColumns>
   </Page>
 }

@@ -1,12 +1,18 @@
-export default class MainInformation {
+import Entry from "./Entry.model"
+
+export default class MainInformation extends Entry {
   name
   summary
   goal
 
   constructor(data) {
-    this.type = "MainInformation"
+    super(data)
     this.name = data["name"]
     this.summary = data["summary"]
     this.goal = data["goal"]
+  }
+
+  key() {
+    return this.name + this.goal
   }
 }

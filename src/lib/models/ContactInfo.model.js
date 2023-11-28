@@ -1,12 +1,10 @@
-import ModelsFactory from "../core/ModelsFactory"
+import Entry from "./Entry.model"
 
-export default class ContactInfo {
+export default class ContactInfo extends Entry {
   entries = []
 
-  constructor(data){
-    this.type = "ContactInformation"
-    for(let entry of data){
-      this.entries.push(ModelsFactory.i().instantiate(entry))
-    }
+  constructor(data) {
+    super(data)
+    this.entries = data["entries"]
   }
 }

@@ -1,14 +1,8 @@
-import ThemeInitilizer from "../../core/abstract/ThemeInitializer"
+import ThemeInitializer from "../../core/abstract/ThemeInitializer"
 import OnePagerComponents from "./OnePagerComponents"
-import OnePagerModels from "./OnePagerModels"
 
-export default class OnePagerInitilizer extends ThemeInitilizer {
-  _models() {
-    return new OnePagerModels()
-  }
-
-
-  _components() {
+export default class OnePagerInitilizer extends ThemeInitializer {
+  components() {
     return new OnePagerComponents()
   }
 }

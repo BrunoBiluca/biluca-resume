@@ -1,22 +1,26 @@
 export default class Factory {
   static _i
 
-  static create_instance(instantiationMapper) {
-    this._i = this._on_create(instantiationMapper)
-  }
-
-  static _on_create(_mapper) {
-    throw new Error("You have to implement the method <_on_create>!")
-  }
-
   static i() {
+    if (!this._i) {
+      this._i = new this()
+    }
+
     return this._i
+  }
+
+  static setInstance(factory) {
+    this._i = factory
   }
 
   mapper = {}
 
-  constructor(mapper) {
-    this.mapper = mapper
+  constructor() {
+    this._create(this.mapper)
+  }
+
+  _create() {
+    console.error("Method <_create> should be implemeted")
   }
 
   instantiate(data, type = null) {
@@ -24,7 +28,13 @@ export default class Factory {
       type = data["type"]
 
     if (!type)
-      console.log(data)
-    return this.mapper.instantiate(type, data)
+      console.error("Error: type should be pass to data -> " + JSON.stringify(data))
+
+    try {
+      return this.mapper[type](data)
+    } catch (error) {
+      console.log(type)
+      throw error
+    }
   }
 }

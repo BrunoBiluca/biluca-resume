@@ -6,10 +6,7 @@ export default class Section extends Entry {
   constructor(data) {
     super(data)
     this.title = data["title"]
-  }
-
-  add(entry) {
-    this.entries.push(entry)
+    this.entries = data["entries"]
   }
 
   key() {

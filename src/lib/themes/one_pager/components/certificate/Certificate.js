@@ -3,7 +3,6 @@ import HighlightText from "../../../../components/highlight_text/HighlightText"
 import styles from "./Certificate.module.css"
 
 export default function Certificate({ certificate }) {
-
   let title = <h3 className={styles.certificateTitle}>{certificate.title}</h3>
 
   if (certificate.hasUrl())
