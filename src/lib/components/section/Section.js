@@ -10,7 +10,7 @@ const Section = ({section, padding }) => (
       {section.entries.map(e => {
         let comp = ComponentsFactory.i().instantiate(e, section.type)
         return (
-          <React.Fragment key={comp.getModel().key()}>
+          <React.Fragment key={comp.key()}>
             {comp.render()}
           </React.Fragment>
         )
