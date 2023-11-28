@@ -1,12 +1,12 @@
 import Page from "../../components/page/Page"
-import FlexTwoColumns, { Main, Side } from "../../components/containers/FlexTwoColumns"
+import GridColumns, { Main, Side } from "../../components/containers/GridColumns"
 import Section from "../../components/section/Section"
 import ComponentsFactory from "../../core/ComponentsFactory"
 
 export default function OnePagerResume({ resume }) {
   return <Page>
     {ComponentsFactory.i().render(resume.mainInformation)}
-    <FlexTwoColumns>
+    <GridColumns>
       <Side>
         {ComponentsFactory.i().render(resume.contactInfo)}
         {
@@ -26,6 +26,6 @@ export default function OnePagerResume({ resume }) {
             )
         }
       </Main>
-    </FlexTwoColumns>
+    </GridColumns>
   </Page>
 }

@@ -1,9 +1,21 @@
-.sectionTitle {
-    border-bottom: 3px solid var(--font-highlight-color);
-    margin: .5em 0;
-    padding-left: 8px;
+.section {
+  margin-top: 1em;
 }
 
-.section .sectionContent {
-    padding-left: 8px;   
+.section:first-child {
+  margin-top: 0;
+}
+
+.sectionTitle {
+  border-bottom: 3px solid var(--font-highlight-color);
+  margin: .5em 0;
+  padding-left: 8px;
+}
+
+.sectionContent {
+  padding-left: 8px;
+}
+
+.sectionContent>* {
+  margin-top: 1em;
 }
