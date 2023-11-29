@@ -4,3 +4,10 @@
   justify-content: center;
   padding: 1cm;
 }
+
+@media print {
+  .app {
+    background-color: white;
+    padding: 0;
+  }
+}
