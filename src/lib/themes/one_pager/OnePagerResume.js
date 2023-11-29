@@ -1,14 +1,14 @@
 import Page from "../../components/page/Page"
 import GridColumns, { Main, Side } from "../../components/containers/GridColumns"
 import Section from "../../components/section/Section"
-import ComponentsFactory from "../../core/ComponentsFactory"
+import { cfac } from "../../core/ComponentsFactory"
 
 export default function OnePagerResume({ resume }) {
-  return <Page>
-    {ComponentsFactory.i().render(resume.mainInformation)}
+  return <Page background={resume.theme.background}>
+    {cfac().render(resume.mainInformation)}
     <GridColumns>
       <Side>
-        {ComponentsFactory.i().render(resume.contactInfo)}
+        {cfac().render(resume.contactInfo)}
         {
           resume.sections
             ?.filter(s => s.theme && s.theme["place"] === "side")

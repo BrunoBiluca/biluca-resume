@@ -1,9 +1,12 @@
 import styles from './Page.module.css';
 
-export default function Page({ children }) {
+export default function Page({ background, children }) {
   return (
     <div className={styles.page}>
-      {children}
+      <img src={background} className={styles.background} alt="page background" />
+      <div className={styles.content}>
+        {children}
+      </div>
     </div>
   )
 }
