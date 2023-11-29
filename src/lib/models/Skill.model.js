@@ -1,10 +1,9 @@
-import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
 export default class Skill extends Entry {
   constructor(data) {
     super(data)
-    this.label = loc(data["label"])
+    this.label = data["label"]
   }
 
   key() {
