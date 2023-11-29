@@ -7,4 +7,8 @@ export default class Singleton {
 
     return this._i
   }
+
+  static setInstance(i) {
+    this._i = i
+  }
 }
