@@ -1,3 +1,4 @@
+import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
 export default class MainInformation extends Entry {
@@ -8,7 +9,7 @@ export default class MainInformation extends Entry {
   constructor(data) {
     super(data)
     this.name = data["name"]
-    this.summary = data["summary"]
+    this.summary = loc(data["summary"])
     this.goal = data["goal"]
   }
 
