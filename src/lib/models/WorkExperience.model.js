@@ -1,4 +1,5 @@
 import { isNullOrEmpty } from "../helpers/StringExtensions"
+import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
 export default class WorkExperience extends Entry {
@@ -14,11 +15,11 @@ export default class WorkExperience extends Entry {
 
   constructor(data) {
     super(data)
-    this.title = data["title"]
+    this.title = loc(data["title"])
     this.periodBegin = data["period_begin"]
     this.periodEnd = data["period_end"]
     this.isCurrentJob = data["is_current_job"]
-    this.description = data["description"]
+    this.description = loc(data["description"])
     this.company = data["company"]
     this.companyUrl = data["company_url"]
     this.companyLocation = data["company_location"]

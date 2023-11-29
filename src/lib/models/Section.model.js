@@ -1,3 +1,4 @@
+import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
 export default class Section extends Entry {
@@ -5,7 +6,7 @@ export default class Section extends Entry {
 
   constructor(data) {
     super(data)
-    this.title = data["title"]
+    this.title = loc(data["title"])
     this.entries = data["entries"]
   }
 

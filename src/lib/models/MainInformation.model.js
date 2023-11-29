@@ -10,7 +10,7 @@ export default class MainInformation extends Entry {
     super(data)
     this.name = data["name"]
     this.summary = loc(data["summary"])
-    this.goal = data["goal"]
+    this.goal = loc(data["goal"])
   }
 
   key() {

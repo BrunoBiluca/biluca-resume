@@ -1,4 +1,5 @@
 import SimpleEntry from "../../../components/simple_entry/SimpleEntry";
+import { loc } from "../../../locale/LocaleText";
 
 export default function WorkExperience({ workExperience }) {
   return (
@@ -27,7 +28,7 @@ export default function WorkExperience({ workExperience }) {
 
 function CompanyInfo({ company, companyUrl }) {
   return <>
-    {` em `}
+    { loc([" em ", " at "]) }
     <a
       href={companyUrl}
       style={{ fontStyle: "italic", color: "#666" }}

@@ -19,7 +19,7 @@ export default class Locale extends Singleton {
     this.activeLocale = this.locale[0]
   }
 
-  availableLanguages() {
+  available() {
     return this.locale
   }
 

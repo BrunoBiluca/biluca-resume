@@ -1,7 +1,8 @@
 import { isNullOrEmpty } from "../helpers/StringExtensions"
+import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
-export default class Certificate extends Entry{
+export default class Certificate extends Entry {
   title
   platform
   emissionDate
@@ -10,10 +11,10 @@ export default class Certificate extends Entry{
 
   constructor(data) {
     super(data)
-    this.title = data["title"]
+    this.title = loc(data["title"])
     this.platform = data["platform"]
     this.emissionDate = data["emission_date"]
-    this.description = data["description"]
+    this.description = loc(data["description"])
     this.url = data["url"]
   }
 

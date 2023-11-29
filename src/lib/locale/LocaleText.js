@@ -1,23 +1,34 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Locale from "./Locale"
+import { isNullOrEmpty } from "../helpers/StringExtensions"
 
+export function loc(text) {
+  let values = []
+  values.push(text)
+  values = values.flat()
 
-export function loc(values) { return LocaleText({ values }) }
+  if (!isNullOrEmpty(values[0])) {
+    let order = 0
+    for (let locale of Locale.i().available()) {
+      if (order++ >= values.length && isNullOrEmpty(values[order])) {
+        console.info(
+          `[Locale Warning] Texto '${values[0]}' não está localizada para ${locale.label}`
+        )
+      }
+    }
+  }
+
+  return LocaleText({ values })
+}
 
 export default function LocaleText({ values }) {
-  const [text, setText] = useState("")
+  const [text, setText] = useState(values[0])
+  Locale.i().subscribe(updateText)
 
-  Locale.i().subscribe((active) => setText(values[active.order]))
-
-  useEffect(() => {
-    if (!Array.isArray(values)) {
-      setText(values)
-      return
-    }
-
-    let active = Locale.i().active()
-    setText(values[active.order])
-  }, [])
+  function updateText(active) {
+    let order = active.order < values.length ? active.order : 0;
+    setText(values[order])
+  }
 
   return text
 }

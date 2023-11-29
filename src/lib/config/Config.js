@@ -7,7 +7,7 @@ import { useState } from "react"
 export default function Config() {
   const [locale, setLocale] = useState(Locale.i().active())
 
-  let availableLanguages = Locale.i().availableLanguages()
+  let availableLanguages = Locale.i().available()
   Locale.i().subscribe(() => setLocale(Locale.i().active()))
 
   return <div className={classNames(styles.config, resumeStyles.noPrint)}>

@@ -1,13 +1,14 @@
+import { loc } from "../locale/LocaleText"
 import Entry from "./Entry.model"
 
 export default class Language extends Entry {
-  constructor(data){
+  constructor(data) {
     super(data)
-    this.label = data["label"]
-    this.level = data["level"]
+    this.label = loc(data["label"])
+    this.level = loc(data["level"])
   }
 
-  key(){
+  key() {
     return this.label + this.level
   }
 }
