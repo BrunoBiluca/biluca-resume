@@ -1,6 +1,9 @@
 .resume {
   font-family: var(--font-main-family);
   color: var(--font-main-color);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2em;
 }
 
 h1 {
@@ -29,6 +32,10 @@ p {
 }
 
 @media print {
+  .resume {
+    display: block;
+  }
+
   .noPrint {
     display: none;
   }

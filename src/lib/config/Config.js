@@ -14,7 +14,11 @@ export default function Config() {
     <h1>Configurações</h1>
     <div style={{ margin: "1em 0" }}>
       <h2>Localização</h2>
-      <div style={{ padding: "1em 0" }}>
+      <div style={{
+        padding: "1em 0", display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "1em"
+      }}>
         {availableLanguages.map(l =>
           <button
             key={l.key}
