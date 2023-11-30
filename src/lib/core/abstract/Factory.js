@@ -19,7 +19,7 @@ export default class Factory {
     this._create(this.mapper)
   }
 
-  _create() {
+  _create(_mapper) {
     console.error("Method <_create> should be implemeted")
   }
 

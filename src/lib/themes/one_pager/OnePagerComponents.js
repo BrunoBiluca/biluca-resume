@@ -37,8 +37,6 @@ import Tag from "../../components/tag/Tag"
 export default class OnePagerComponents extends ComponentsFactory {
 
   _create(m) {
-    m["Resume"]
-      = this._map(OnePagerResume, Resume, (m) => ({ resume: m }))
     m["ContactInformation"]
       = this._map(ContactInformation, ContactInfo, (m) => ({ contactInfo: m }))
     m["MainInformation"]

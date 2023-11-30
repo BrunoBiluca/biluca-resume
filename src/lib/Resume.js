@@ -8,17 +8,15 @@ import Config from "./config/Config";
 
 
 function Resume({ data, variables }) {
-  let theme = ThemesFactory.i().instantiate(data["theme"])
+  let theme = new ThemesFactory().instantiate(data)
   ComponentsFactory.setInstance(theme.components())
-
   Locale.setInstance(new Locale(data["locale"]))
 
   let usedVariables = variables != null ? variables : new Variables()
-  let resume = ComponentsFactory.i().instantiate(data, "Resume")
 
   return <div className={styles.resume} style={usedVariables.css()} >
     <Config />
-    {resume.render()}
+    {theme.render()}
   </div>
 }
 

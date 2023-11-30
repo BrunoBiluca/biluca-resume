@@ -13,6 +13,10 @@ export default class BaseComponent {
   }
 
   render() {
+    if (!this.model.isActive) {
+      return <></>
+    }
+
     return this.component
   }
 }
