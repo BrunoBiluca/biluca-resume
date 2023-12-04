@@ -6,7 +6,4 @@ export default class LinkedIn extends Entry {
     this.profile = data["profile"]
   }
 
-  key() {
-    return this.profile
-  }
 }

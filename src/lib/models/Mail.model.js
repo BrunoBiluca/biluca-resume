@@ -5,8 +5,4 @@ export default class Mail extends Entry {
     super(data)
     this.email = data["email"]
   }
-
-  key() {
-    return this.email
-  }
 }

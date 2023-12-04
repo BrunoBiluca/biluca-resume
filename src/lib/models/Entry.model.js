@@ -1,6 +1,7 @@
 export default class Entry {
 
   constructor(data) {
+    this.data = data
     this.isActive = true
     if (data.hasOwnProperty("is_active"))
       this.isActive = data["is_active"]
@@ -17,6 +18,6 @@ export default class Entry {
   }
 
   key() {
-    throw new Error("You have to implement the method <key>!")
+    return JSON.stringify(this.data).trim().slice(0, 255)
   }
 }

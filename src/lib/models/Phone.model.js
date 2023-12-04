@@ -6,7 +6,4 @@ export default class Phone extends Entry {
     this.number = data["number"]
   }
 
-  key() {
-    return this.number
-  }
 }

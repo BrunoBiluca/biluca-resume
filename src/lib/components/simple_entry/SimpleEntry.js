@@ -1,4 +1,3 @@
-import parse from 'html-react-parser';
 import FlexTwoColumns, { Main, Side } from "../containers/FlexTwoColumns";
 import HighlightText from "../highlight_text/HighlightText";
 import styles from "./SimpleEntry.module.css"
@@ -9,7 +8,7 @@ export default function SimpleEntry({ title, description, sideTexts }) {
       <Main>
         <h2 className={styles.title}>{title}</h2>
         <p style={{ fontStyle: "italic" }}>
-          {parse(description)}
+          {description}
         </p>
       </Main>
       <Side>

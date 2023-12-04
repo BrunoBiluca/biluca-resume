@@ -6,7 +6,4 @@ export default class Github extends Entry {
     this.profile = data["profile"]
   }
 
-  key() {
-    return this.profile
-  }
 }

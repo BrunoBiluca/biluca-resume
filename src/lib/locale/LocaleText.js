@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Locale from "./Locale"
 import { isNullOrEmpty } from "../helpers/StringExtensions"
+import HTMLReactParser from "html-react-parser"
 
 export function loc(text) {
   let values = []
@@ -31,5 +32,5 @@ export default function LocaleText({ values }) {
     }
   }, [values])
 
-  return text
+  return <>{HTMLReactParser(text)}</>
 }

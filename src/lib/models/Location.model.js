@@ -7,7 +7,4 @@ export default class Location extends Entry {
     this.googleMaps = data["google_maps"]
   }
 
-  key() {
-    return this.place
-  }
 }

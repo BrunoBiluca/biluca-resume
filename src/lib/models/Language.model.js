@@ -8,7 +8,4 @@ export default class Language extends Entry {
     this.level = loc(data["level"])
   }
 
-  key() {
-    return this.label + this.level
-  }
 }

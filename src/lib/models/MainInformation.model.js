@@ -13,7 +13,4 @@ export default class MainInformation extends Entry {
     this.goal = loc(data["goal"])
   }
 
-  key() {
-    return this.name + this.goal
-  }
 }

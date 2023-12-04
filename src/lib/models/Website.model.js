@@ -6,7 +6,4 @@ export default class Website extends Entry {
     this.url = data["url"]
   }
 
-  key() {
-    return this.url
-  }
 }

@@ -6,7 +6,4 @@ export default class Skill extends Entry {
     this.label = data["label"]
   }
 
-  key() {
-    return this.label
-  }
 }

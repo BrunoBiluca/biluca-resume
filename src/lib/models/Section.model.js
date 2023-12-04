@@ -10,7 +10,4 @@ export default class Section extends Entry {
     this.entries = data["entries"]
   }
 
-  key() {
-    return this.title
-  }
 }

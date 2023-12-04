@@ -18,10 +18,6 @@ export default class Certificate extends Entry {
     this.url = data["url"]
   }
 
-  key() {
-    return this.title + this.platform + this.emissionDate
-  }
-
   hasUrl() {
     return !isNullOrEmpty(this.url)
   }

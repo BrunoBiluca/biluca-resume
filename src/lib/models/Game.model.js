@@ -10,8 +10,4 @@ export default class Game extends Entry {
     this.repository = data["repository"]
     this.screenshoot = data["screenshoot"]
   }
-
-  key() {
-    return this.name + this.description + this.role
-  }
 }
