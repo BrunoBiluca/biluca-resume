@@ -1,5 +1,5 @@
 export default class Variables {
-  constructor() {
+  constructor(data) {
     this.fontMainFamily = "'Tahoma', sans-serif"
     this.fontMainColor = "#666"
     this.fontSecondColor = "#aaa"
@@ -10,6 +10,8 @@ export default class Variables {
     this.fontSizeText = "12px"
     this.textLineHeight = "1.2"
     this.fontSizeSmall = "9px"
+    this.sectionsGap = data["sections_gap"] ?? "1.5em"
+    this.contentsGap = data["contents_gap"] ?? "1.5em"
   }
 
   css() {
@@ -23,7 +25,9 @@ export default class Variables {
       "--font-size-title-3": this.fontSizeH3,
       "--font-size-text": this.fontSizeText,
       "--text-line-height": this.textLineHeight,
-      "--font-size-small": this.fontSizeSmall
+      "--font-size-small": this.fontSizeSmall,
+      "--sections-gap": this.sectionsGap,
+      "--contents-gap": this.contentsGap
     }
   }
 }

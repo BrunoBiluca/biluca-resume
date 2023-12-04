@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Resume.module.css"
-import Variables from "./Variables";
 import ComponentsFactory from "./core/ComponentsFactory";
 import ThemesFactory from "./ThemesFactory";
 import Locale from "./locale/Locale";
@@ -12,9 +11,7 @@ function Resume({ data, variables }) {
   ComponentsFactory.setInstance(theme.components())
   Locale.setInstance(new Locale(data["locale"]))
 
-  let usedVariables = variables != null ? variables : new Variables()
-
-  return <div className={styles.resume} style={usedVariables.css()} >
+  return <div className={styles.resume} style={variables ?? theme.variables()} >
     <Config />
     {theme.render()}
   </div>

@@ -1,3 +1,5 @@
+import Variables from "../../Variables"
+
 export default class ThemeInitializer {
 
   constructor(data) {
@@ -6,6 +8,10 @@ export default class ThemeInitializer {
 
   components() {
     console.error("Method <components> must be implemeted")
+  }
+
+  variables() {
+    console.error("Method <variables> must be implemeted")
   }
 
   render() {
