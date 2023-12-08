@@ -1,5 +1,4 @@
 import styles from './MainInformation.module.css';
-import placeholder from './images/placeholder_picture.webp';
 
 
 export default function MainInformation({ info }) {
@@ -7,8 +6,8 @@ export default function MainInformation({ info }) {
     <div className={styles.header}>
       <div className={styles.picture} >
         <img
-          src={placeholder}
-          alt="image placeholder do currículo"
+          src={info.picture}
+          alt="Foto de perfil da pessoa do currículo"
         />
       </div>
       <div className={styles.headerInfo}>

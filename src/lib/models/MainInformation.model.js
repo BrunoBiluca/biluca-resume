@@ -8,6 +8,7 @@ export default class MainInformation extends Entry {
 
   constructor(data) {
     super(data)
+    this.picture = data["picture"]
     this.name = data["name"]
     this.summary = loc(data["summary"])
     this.goal = loc(data["goal"])
