@@ -1,5 +1,5 @@
 {
-  "name": "biluca-resume",
+  "name": "@brunobiluca/biluca-resume",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,7 +11,8 @@
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "rimraf dist && set NODE_ENV=production&& babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+    "build": "rimraf dist && set NODE_ENV=production&& babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "publish": "npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && npm publish --access public"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
@@ -35,5 +36,16 @@
   "dependencies": {
     "html-react-parser": "^5.0.6",
     "react-icons": "^4.12.0"
-  }
+  },
+  "description": "As mensagem de commits deve seguir o seguinte formato",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoBiluca/biluca-resume.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoBiluca/biluca-resume/issues"
+  },
+  "homepage": "https://github.com/BrunoBiluca/biluca-resume#readme"
 }
