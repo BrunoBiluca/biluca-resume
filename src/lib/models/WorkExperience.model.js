@@ -31,7 +31,9 @@ export default class WorkExperience extends Entry {
 
   period() {
     let period = this.periodBegin + " -"
-    if (!this.isCurrentJob)
+    if (this.isCurrentJob)
+      period = loc([period + " Atual", period + " Present"])
+    else
       period += " " + this.periodEnd
 
     return period
