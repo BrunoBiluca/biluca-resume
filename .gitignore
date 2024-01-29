@@ -1,4 +1,5 @@
 /public/resume_data
+/dist/
 
 # dependencies
 /node_modules
