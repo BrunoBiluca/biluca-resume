@@ -1,8 +1,6 @@
-## Fluxo de trabalho
+# Versionamento
 
-### Versionamento
-
-#### Mensagens de commit
+## Mensagens de commit
 
 As mensagem de commits deve seguir o seguinte formato
 
@@ -15,7 +13,7 @@ As mensagem de commits deve seguir o seguinte formato
 - justificativa: parte destinada a definir uma justificativa para para a alteração commitada
 	- A justificativa é opcional já que muitas vezes a própria descrição do conteúdo já explana a justificativa da alteração.
 
-##### Tipos 
+### Tipos 
 
 Cada commit deve ter um tipo associado, esses tipos são definidos como emojis para facilitar o seu entendimento.
 
