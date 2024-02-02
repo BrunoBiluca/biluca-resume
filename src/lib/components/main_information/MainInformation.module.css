@@ -16,16 +16,16 @@
   object-fit: cover;
 }
 
-.goal {
+p.goal {
   border-bottom: 1px solid gray;
   margin: 0.4em 0;
   margin-bottom: 1em;
   color: var(--font-second-color);
 }
 
-.summary {
+p.summary {
   font-style: italic;
-  font-size: 14px;
+  font-size: calc(var(--font-size-text) + 2px);
   line-height: 1.4;
-  color: var(--font-main-color);;
+  color: var(--font-main-color);
 }

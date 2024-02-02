@@ -4,26 +4,26 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2em;
-}
 
-h1 {
-  font-size: var(--font-size-title-1);
-  font-weight: bold;
-}
+  h1 {
+    font-size: var(--font-size-title-1);
+    font-weight: bold;
+  }
 
-h2 {
-  font-size: var(--font-size-title-2);
-  font-weight: bold;
-}
+  h2 {
+    font-size: var(--font-size-title-2);
+    font-weight: bold;
+  }
 
-h3 {
-  font-size: var(--font-size-title-3);
-  font-weight: bold;
-}
+  h3 {
+    font-size: var(--font-size-title-3);
+    font-weight: bold;
+  }
 
-p {
-  font-size: var(--font-size-text);
-  line-height: var(--text-line-height);
+  p {
+    font-size: var(--font-size-text);
+    line-height: var(--text-line-height);
+  }
 }
 
 @page {
@@ -34,9 +34,9 @@ p {
 @media print {
   .resume {
     display: block;
-  }
 
-  .noPrint {
-    display: none;
+    .noPrint {
+      display: none;
+    }
   }
 }
