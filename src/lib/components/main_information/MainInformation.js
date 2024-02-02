@@ -12,7 +12,7 @@ export default function MainInformation({ info }) {
       </div>
       <div className={styles.headerInfo}>
         <div>
-          <h1 className={styles.personName}>{info.name}</h1>
+          <h1 style={{margin: 0}}>{info.name}</h1>
           <p className={styles.goal}>{info.goal}</p>
         </div>
         <p className={styles.summary}>{info.summary}</p>
