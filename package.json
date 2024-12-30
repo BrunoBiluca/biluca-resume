@@ -1,19 +1,25 @@
 {
-  "name": "@brunobiluca/biluca-resume",
-  "version": "0.1.2",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build": "rimraf dist && set NODE_ENV=production&& babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "publish": "npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && npm publish --access public"
+  "author": "",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
   },
+  "bugs": {
+    "url": "https://github.com/BrunoBiluca/biluca-resume/issues"
+  },
+  "dependencies": {
+    "html-react-parser": "^5.0.6",
+    "react-icons": "^4.12.0"
+  },
+  "description": "Biblioteca de criação de currículos",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "react": "^18.2.0",
@@ -21,31 +27,25 @@
     "react-scripts": "^5.0.1",
     "rimraf": "^5.0.5"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "dependencies": {
-    "html-react-parser": "^5.0.6",
-    "react-icons": "^4.12.0"
-  },
-  "description": "Biblioteca de criação de currículos",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/BrunoBiluca/biluca-resume#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "name": "@brunobiluca/biluca-resume",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BrunoBiluca/biluca-resume.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BrunoBiluca/biluca-resume/issues"
+  "scripts": {
+    "build": "rimraf dist && set NODE_ENV=production&& babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build-local": "set PUBLIC_URL=/&& react-scripts build",
+    "eject": "react-scripts eject",
+    "publish": "npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && npm publish --access public",
+    "start": "set PUBLIC_URL=/&& react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   },
-  "homepage": "https://github.com/BrunoBiluca/biluca-resume#readme"
+  "version": "0.1.2"
 }

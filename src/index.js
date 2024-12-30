@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     async function fetchResumeData() {
-      const request = await fetch("./resume_data/resume.json")
+      const request = await fetch("./resume/resume.json")
       const resumeJson = await request.json()
       setResume(resumeJson)
     }
