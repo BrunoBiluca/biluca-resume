@@ -1,5 +1,7 @@
 # Versionamento
 
+O versionamento do projeto está sendo feito por meio do Github no link: [biluca-resume](https://github.com/BrunoBiluca/biluca-resume).
+
 ## Mensagens de commit
 
 As mensagem de commits deve seguir o seguinte formato
