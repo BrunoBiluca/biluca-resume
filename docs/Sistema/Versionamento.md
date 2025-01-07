@@ -22,9 +22,9 @@ Cada commit deve ter um tipo associado, esses tipos são definidos como emojis p
 | Emoji | Descrição                                                                            |
 | ----- | ------------------------------------------------------------------------------------ |
 | ✨     | Criação ou alteração de funcionalidades                                              |
-| 💄     | Criação ou alteração de formatos da interface visual do usuário                      |
-| 🔥     | Remoção de elementos dos Versionamento                                               |
-| 🐛     | Correção de funcionalidades                                                          |
-| ♻️     | Refatoração do projeto para melhorar legibilidade, organização                       |
-| 📖     | Adição ou alteração de documentação do projeto                                       |
-| 🔧     | Adição ou alteração comandos, scripts ou ferramentas que auxiliam ao desenvolvimento |
+| 💄    | Criação ou alteração de formatos da interface visual do usuário                      |
+| 🔥    | Remoção de elementos dos Versionamento                                               |
+| 🐛    | Correção de funcionalidades                                                          |
+| ♻️    | Refatoração do projeto para melhorar legibilidade, organização                       |
+| 📖    | Adição ou alteração de documentação do projeto                                       |
+| 🔧    | Adição ou alteração comandos, scripts ou ferramentas que auxiliam ao desenvolvimento |
