@@ -229,7 +229,8 @@ Estrutura da configuração é uma lista dos conteúdos escondidos, já que temo
 		"id_1",
 		"id_2",
 		"id_3"
-	]
+	],
+	"createdAt": ""
 }
 ```
 

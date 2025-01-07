@@ -17,11 +17,17 @@
   },
   "dependencies": {
     "html-react-parser": "^5.0.6",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "uuid": "^11.0.4"
   },
   "description": "Biblioteca de criação de currículos",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "jest": "^27.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
@@ -45,7 +51,8 @@
     "eject": "react-scripts eject",
     "publish": "npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && npm publish --access public",
     "start": "set PUBLIC_URL=/&& react-scripts start",
-    "test": "react-scripts test --env=jsdom"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
+  "type": "module",
   "version": "0.1.2"
 }
