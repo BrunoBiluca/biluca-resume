@@ -12,7 +12,7 @@ import { LinkedIn } from "../../components/contact_information/LinkedIn"
 import { Website } from "../../components/contact_information/Website"
 import Certificate from "./components/Certificate"
 import ContactInformation from "../../components/contact_information/ContactInformation"
-import BaseComponent from "../../core/BaseComponent"
+import ResumeComponent from "../../core/ResumeComponent"
 import ComponentsFactory from "../../core/ComponentsFactory"
 
 import {
@@ -36,42 +36,42 @@ import Tag from "../../components/tag/Tag"
 
 export default class OnePagerComponents extends ComponentsFactory {
 
-  _create(m) {
-    m["ContactInformation"]
+  _create(resumeConfig) {
+    resumeConfig["ContactInformation"]
       = this._map(ContactInformation, ContactInfo, (m) => ({ contactInfo: m }))
-    m["MainInformation"]
+    resumeConfig["MainInformation"]
       = this._map(MainInformation, MainInformationModel, (m) => ({ info: m }))
-    m["WorkExperience"]
+    resumeConfig["WorkExperience"]
       = this._map(WorkExperience, WorkExperienceModel, (m) => ({ workExperience: m }))
-    m["Skill"]
+    resumeConfig["Skill"]
       = this._map(Tag, SkillModel, (m) => ({ label: m.label }))
-    m["Certificate"]
+    resumeConfig["Certificate"]
       = this._map(Certificate, CertificateModel, (m) => ({ certificate: m }))
-    m["Education"]
+    resumeConfig["Education"]
       = this._map(Education, EducationModel, (m) => ({ education: m }))
-    m["Language"]
+    resumeConfig["Language"]
       = this._map(Language, LanguageModel, (m) => ({ language: m }))
-    m["Game"]
+    resumeConfig["Game"]
       = this._map(Game, GameModel, (m) => ({ game: m }))
-    m["Mail"]
+    resumeConfig["Mail"]
       = this._map(Mail, MailModel, (m) => ({ email: m.email, label: m.email }))
-    m["Phone"]
+    resumeConfig["Phone"]
       = this._map(Phone, PhoneModel, (m) => ({ number: m.number }))
-    m["Location"]
+    resumeConfig["Location"]
       = this._map(Location, LocationModel, (m) => ({ place: m.place, url: m.googleMaps }))
-    m["Github"]
+    resumeConfig["Github"]
       = this._map(Github, GithubModel, (m) => ({ github: m.profile }))
-    m["LinkedIn"]
+    resumeConfig["LinkedIn"]
       = this._map(LinkedIn, LinkedInModel, (m) => ({ profile: m.profile }))
-    m["Website"]
+    resumeConfig["Website"]
       = this._map(Website, WebsiteModel, (m) => ({ url: m.url }))
   }
 
   _map(comp, model, mapProps) {
     return (data) => {
-      let instance = new model(data)
-      let component = comp(mapProps(instance))
-      return new BaseComponent(instance, component)
+      let dataModel = new model(data)
+      let component = comp(mapProps(dataModel))
+      return new ResumeComponent(dataModel, component)
     }
   }
 }

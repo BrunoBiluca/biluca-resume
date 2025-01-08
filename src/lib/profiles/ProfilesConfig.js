@@ -2,57 +2,56 @@ import React from "react"
 import { v4 as uuidv4 } from 'uuid';
 import styles from './ProfilesConfig.module.css'
 import BasePanel from "../components/base_panel/BasePanel";
+import ProfileButton from "./ProfileButton";
+import Profile from "./Profile";
 
 
 export default function ProfilesConfig() {
-  const [profiles, setProfiles] = React.useState([
-    {
-      id: "completo",
-      name: "Completo",
+  const [profiles, setProfiles] = React.useState(Profile.i().getProfiles())
+  const [selectedProfile, setSelectedProfile] = React.useState("completo")
+
+  Profile.i().subscribe(() => {
+    setSelectedProfile(Profile.i().getActiveProfile().id)
+  })
+
+  function addProfile() {
+    console.log("Adicionar perfil")
+
+    let newProfileName = "Novo perfil"
+
+    const count = profiles.filter(p => p.name.startsWith("Novo perfil")).length + 1
+    if (count > 1) {
+      newProfileName += " " + count
+    }
+
+    const newProfile = {
+      id: uuidv4(),
+      name: newProfileName,
+      canEdit: true,
       hidden_content: [],
       createdAt: Date.now()
     }
-  ])
-  const [selectedProfile, setSelectedProfile] = React.useState("completo")
+
+    setProfiles([...profiles, newProfile])
+    Profile.i().addProfile(newProfile)
+  }
 
   return (
     <BasePanel title="Perfis">
       <div>
-        <button
-          onClick={() => {
-            console.log("Adicionar perfil")
-
-            let newProfileName = "Novo perfil"
-
-            const count = profiles.filter(p => p.name.startsWith("Novo perfil")).length + 1
-            if (count > 1) {
-              newProfileName += " " + count
-            }
-
-            const newProfile = {
-              id: uuidv4(),
-              name: newProfileName,
-              hidden_content: [],
-              createdAt: Date.now()
-            }
-
-            setProfiles([...profiles, newProfile])
-            setSelectedProfile(newProfile.id)
-          }}
-        >Adicionar</button>
+        <button onClick={addProfile}>Adicionar</button>
       </div>
       <hr />
       <div id="profiles" className={styles.profiles}>
         {
           profiles.map(p =>
-            <button
-              role="option"
-              disabled={p.id === selectedProfile}
+            <ProfileButton
               key={p.id}
-              onClick={() => setSelectedProfile(p.id)}
-            >
-              {p.name}
-            </button>
+              name={p.name}
+              isActive={p.id === selectedProfile}
+              canEdit={p.canEdit}
+              onClick={() => Profile.i().setActiveProfile(p.id)}
+            />
           )
         }
       </div>
