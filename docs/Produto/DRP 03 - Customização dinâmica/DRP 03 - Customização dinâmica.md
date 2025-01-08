@@ -69,6 +69,11 @@ __Critérios de aceite__
 	- Ele tem o nome "Novo perfil"
 	- Um novo perfil deve ser exibido ao usuário
 
+- Quando um novo perfil é criado e já existe seu nome ele deve apresentar um sufixo numérico definindo sua posição
+	- Por exemplo, se já existe "Novo perfil" o novo perfil deve ter o nome "Novo perfil 2"
+
+- Quando o perfil criado for selecionado ele deve demonstrar ao usuário que está ativo
+
 - Quando o perfil completo é atualizado, as novas informações devem aparecer como escondidas em perfil já adicionado
 
 ### ⬛ RF 03.01.01 - Renomear perfil

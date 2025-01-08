@@ -12,5 +12,11 @@ export default async () => {
         '<rootDir>/test/jest/__mocks__/fileMock.js',
       '\\.(css|less)$': '<rootDir>/test/jest/__mocks__/styleMock.js',
     },
+    moduleFileExtensions: [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
   };
 };

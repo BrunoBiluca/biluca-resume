@@ -21,24 +21,8 @@
               "icon": "lucide-file",
               "title": "DRP 03 - Customização dinâmica"
             }
-          },
-          {
-            "id": "a668e190a37fb38a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sistema/Versionamento.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Versionamento"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,10 +94,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Sistema/Versionamento.md"
+                "file": "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md"
               },
               "icon": "lucide-list",
-              "title": "Sumário de Versionamento"
+              "title": "Sumário de DRP 03 - Customização dinâmica"
             }
           },
           {
@@ -195,12 +179,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Sistema/Versionamento.md",
+                "file": "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Links de saída para Versionamento"
+              "title": "Links de saída para DRP 03 - Customização dinâmica"
             }
           }
         ],
@@ -223,8 +207,9 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a668e190a37fb38a",
+  "active": "9c3c5669c6a1fa54",
   "lastOpenFiles": [
+    "Sistema/Versionamento.md",
     "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md",
     "Produto/DRP 04 - Habilidades 2.0/DRP 04 - Habilidades 2.0.md",
     "Produto/Produto.md",
@@ -232,7 +217,6 @@
     "_interno/Modelos/rf.md",
     "_interno/Modelos/drp.md",
     "Produto/DRP 04 - Habilidades 2.0",
-    "Sistema/Versionamento.md",
     "Sistema/Componentes externos.md",
     "_interno/Modelos",
     "_interno",

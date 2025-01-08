@@ -1,0 +1,10 @@
+.basePanel {
+  position: relative;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  padding: 1em;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}

@@ -23,6 +23,7 @@
   "description": "Biblioteca de criação de currículos",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
+    "@babel/preset-env": "^7.26.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
@@ -53,6 +54,5 @@
     "start": "set PUBLIC_URL=/&& react-scripts start",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
-  "type": "module",
   "version": "0.1.2"
 }

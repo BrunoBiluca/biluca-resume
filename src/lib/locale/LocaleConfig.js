@@ -1,3 +1,4 @@
+import BasePanel from "../components/base_panel/BasePanel"
 import Locale from "../locale/Locale"
 import { useState } from "react"
 
@@ -8,12 +9,10 @@ export default function LocaleConfig() {
   let availableLanguages = Locale.i().available()
   Locale.i().subscribe(() => setLocale(Locale.i().active()))
 
-  return <>
-    <h2>Localização</h2>
+  return <BasePanel title={"Localização"}>
     <div style={{
-      padding: "1em 0", display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "1em"
+      display: "grid",
+      gridGap: "5px"
     }}>
       {availableLanguages.map(l =>
         <button
@@ -25,5 +24,5 @@ export default function LocaleConfig() {
         </button>
       )}
     </div>
-  </>
+  </BasePanel>
 }
