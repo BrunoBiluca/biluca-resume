@@ -34,9 +34,5 @@
 @media print {
   .resume {
     display: block;
-
-    .noPrint {
-      display: none;
-    }
   }
 }

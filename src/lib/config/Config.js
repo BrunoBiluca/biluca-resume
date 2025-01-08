@@ -1,12 +1,10 @@
-import styles from "./Config.module.css"
-import resumeStyles from "../Resume.module.css"
 import LocaleConfig from "../locale/LocaleConfig"
 import ProfilesConfig from "../profiles/ProfilesConfig"
-import BasePanel from "../components/base_panel/BasePanel"
+import NoPrint from "../components/no_print/NoPrint"
 
 export default function Config() {
-  return <div className={resumeStyles.noPrint}>
+  return <NoPrint>
     <LocaleConfig />
     <ProfilesConfig />
-  </div>
+  </NoPrint>
 }
