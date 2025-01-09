@@ -4,6 +4,7 @@ import styles from './ProfilesConfig.module.css'
 import BasePanel from "../components/base_panel/BasePanel";
 import ProfileButton from "./ProfileButton";
 import Profile from "./Profile";
+import ProfileSave from "./ProfileSave";
 
 
 export default function ProfilesConfig() {
@@ -51,6 +52,7 @@ export default function ProfilesConfig() {
               isActive={p.id === selectedProfile}
               canEdit={p.canEdit}
               onClick={() => Profile.i().setActiveProfile(p.id)}
+              onSave={() => { new ProfileSave().save() }}
             />
           )
         }

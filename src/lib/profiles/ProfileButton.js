@@ -1,7 +1,7 @@
 import React from "react"
 import Profile from "./Profile"
 
-export default function ProfileButton({ name, isActive, canEdit, onClick }) {
+export default function ProfileButton({ name, isActive, canEdit, onClick, onSave }) {
 
   const [isEditMode, setIsEditMode] = React.useState(Profile.i().isEditMode)
 
@@ -18,20 +18,26 @@ export default function ProfileButton({ name, isActive, canEdit, onClick }) {
     </button>
     {
       isActive && canEdit &&
-      <button
-        style={{ backgroundColor: isEditMode ? "green" : "gray" }}
-        onClick={() => {
-          const newEditMode = !isEditMode
-          if (newEditMode) {
-            Profile.i().enterEditMode()
-          } else {
-            Profile.i().exitEditMode()
-          }
-          setIsEditMode(newEditMode)
-        }}
-      >
-        Editar
-      </button>
+      <>
+        <button
+          style={{ backgroundColor: isEditMode ? "green" : "gray" }}
+          onClick={() => {
+            const newEditMode = !isEditMode
+            if (newEditMode) {
+              Profile.i().enterEditMode()
+            } else {
+              Profile.i().exitEditMode()
+            }
+            setIsEditMode(newEditMode)
+          }}
+        >
+          Editar
+        </button>
+
+        <button onClick={onSave}>
+          Salvar
+        </button>
+      </>
     }
   </div>
 }
