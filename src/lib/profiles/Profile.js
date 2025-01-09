@@ -51,6 +51,22 @@ export default class Profile extends Singleton {
     return this.activeProfile;
   }
 
+  hideComponent(componentId) {
+    if (!this.isEditMode) return
+    this.activeProfile.hidden_content.push(componentId)
+    this.runCallbacks()
+  }
+
+  showComponent(componentId) {
+    if (!this.isEditMode) return
+    this.activeProfile.hidden_content = this.activeProfile.hidden_content.filter(c => c !== componentId)
+    this.runCallbacks()
+  }
+
+  isComponentHidden(componentId) {
+    return this.activeProfile.hidden_content.includes(componentId)
+  }
+
   subscribe(callback) {
     this.onChangeCallbacks.push({ key: String(callback), callback })
   }

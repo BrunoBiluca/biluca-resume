@@ -5,14 +5,14 @@ export default function EditController({ isHidden, onChange, children }) {
 
   const controlButton = isHidden
     ? <button
-      style={{ position: "absolute", top: 0, right: 0 }}
+      style={{ position: "absolute", top: 0, right: 0, zIndex: 1 }}
       onClick={() => { onChange(false) }}
     >
       Exibir
     </button>
     :
     <button
-      style={{ position: "absolute", top: 0, right: 0 }}
+      style={{ position: "absolute", top: 0, right: 0, zIndex: 1 }}
       onClick={() => { onChange(true) }}
     >
       Esconder
@@ -24,6 +24,19 @@ export default function EditController({ isHidden, onChange, children }) {
     onMouseLeave={() => setEdidting(false)}
   >
     {editing && controlButton}
+
+    <div style={{
+      display: isHidden ? "block" : "none",
+      position: "absolute",
+      top: 0,
+      right: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(255, 255, 255, 0.6)"
+    }}>
+    </div>
+
     {children}
+
   </div>
 }

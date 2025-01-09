@@ -9,14 +9,17 @@ export default function ProfileButton({ name, isActive, canEdit, onClick }) {
     <button
       role="option"
       disabled={isActive}
-      onClick={onClick}
+      onClick={() => {
+        setIsEditMode(false)
+        onClick()
+      }}
     >
       {name}
     </button>
     {
       isActive && canEdit &&
       <button
-        style={{backgroundColor:isEditMode ? "green" : "gray"}}
+        style={{ backgroundColor: isEditMode ? "green" : "gray" }}
         onClick={() => {
           const newEditMode = !isEditMode
           if (newEditMode) {

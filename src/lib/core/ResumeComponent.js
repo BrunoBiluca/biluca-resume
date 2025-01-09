@@ -24,10 +24,17 @@ export default class ResumeComponent {
       return this.component
     }
 
+    let compoenentId = this.model.key()
+
     return <EditController
-      isHidden={false}
-      onChange={(hidden) => {
-        console.log("Alterando o estado do componente para ", hidden ? "escondido" : "exibido")
+      isHidden={Profile.i().isComponentHidden(compoenentId)}
+      onChange={(hide) => {
+        if (hide) {
+          Profile.i().hideComponent(compoenentId)
+        }
+        else {
+          Profile.i().showComponent(compoenentId)
+        }
       }}
     >
       {this.component}
