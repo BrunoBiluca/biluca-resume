@@ -22,6 +22,7 @@ export default function EditController({ isHidden, onChange, children }) {
     style={{ position: "relative" }}
     onMouseEnter={() => setEdidting(true)}
     onMouseLeave={() => setEdidting(false)}
+    data-testid="edit-controller"
   >
     {editing && controlButton}
 

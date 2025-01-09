@@ -16,28 +16,29 @@ export default class ResumeComponent {
   }
 
   render() {
-    if (!this.model.isActive) {
+    let compoenentId = this.model.key()
+    const profile = Profile.i()
+    
+    if (profile.getActiveProfile().canEdit && profile.isEditMode) {
+      return <EditController
+        isHidden={profile.isComponentHidden(compoenentId)}
+        onChange={(hide) => {
+          if (hide) {
+            profile.hideComponent(compoenentId)
+          }
+          else {
+            profile.showComponent(compoenentId)
+          }
+        }}
+      >
+        {this.component}
+      </EditController>
+    }
+
+    if (!this.model.isActive || profile.isComponentHidden(compoenentId)) {
       return <></>
     }
 
-    if (!Profile.i().getActiveProfile().canEdit || !Profile.i().isEditMode) {
-      return this.component
-    }
-
-    let compoenentId = this.model.key()
-
-    return <EditController
-      isHidden={Profile.i().isComponentHidden(compoenentId)}
-      onChange={(hide) => {
-        if (hide) {
-          Profile.i().hideComponent(compoenentId)
-        }
-        else {
-          Profile.i().showComponent(compoenentId)
-        }
-      }}
-    >
-      {this.component}
-    </EditController>
+    return this.component
   }
 }
