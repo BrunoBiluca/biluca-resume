@@ -28,3 +28,4 @@ Cada commit deve ter um tipo associado, esses tipos são definidos como emojis p
 | ♻️    | Refatoração do projeto para melhorar legibilidade, organização                       |
 | 📖    | Adição ou alteração de documentação do projeto                                       |
 | 🔧    | Adição ou alteração comandos, scripts ou ferramentas que auxiliam ao desenvolvimento |
+| ✅     | Adição de teste a fim de aumentar a cobertura e a efetividade dos testes             |

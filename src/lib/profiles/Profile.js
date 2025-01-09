@@ -10,7 +10,7 @@ export default class Profile extends Singleton {
   constructor() {
     super()
 
-    this.profiles.push(
+    this.addProfile(
       {
         id: "completo",
         name: "Completo",
@@ -19,8 +19,6 @@ export default class Profile extends Singleton {
         createdAt: Date.now()
       }
     )
-
-    this.activeProfile = this.profiles[0]
   }
 
   getProfiles() {
@@ -33,13 +31,13 @@ export default class Profile extends Singleton {
   }
 
   setActiveProfile(profileId) {
-    console.log("setActiveProfile", profileId)
     this.activeProfile = this.profiles.find(p => p.id === profileId)
-    console.log("setActiveProfile", this.activeProfile)
     this.exitEditMode()
   }
 
   enterEditMode() {
+    if (!this.activeProfile.canEdit) return
+
     this.isEditMode = true
     this.runCallbacks()
   }

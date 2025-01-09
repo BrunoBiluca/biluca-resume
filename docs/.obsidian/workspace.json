@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md",
+                "file": "Sistema/Versionamento.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DRP 03 - Customização dinâmica"
+              "title": "Versionamento"
             }
           }
         ]
@@ -179,12 +179,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md",
+                "file": "Sistema/Versionamento.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Links de saída para DRP 03 - Customização dinâmica"
+              "title": "Links de saída para Versionamento"
             }
           }
         ],
@@ -209,8 +209,8 @@
   },
   "active": "9c3c5669c6a1fa54",
   "lastOpenFiles": [
-    "Sistema/Versionamento.md",
     "Produto/DRP 03 - Customização dinâmica/DRP 03 - Customização dinâmica.md",
+    "Sistema/Versionamento.md",
     "Produto/DRP 04 - Habilidades 2.0/DRP 04 - Habilidades 2.0.md",
     "Produto/Produto.md",
     "Usuário/Estrutura de configuração de currículo.md",
