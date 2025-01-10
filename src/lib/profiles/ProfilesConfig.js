@@ -13,6 +13,7 @@ export default function ProfilesConfig() {
 
   Profile.i().subscribe(() => {
     setSelectedProfile(Profile.i().getActiveProfile().id)
+    setProfiles([...Profile.i().getProfiles()])
   })
 
   function addProfile() {
@@ -31,7 +32,6 @@ export default function ProfilesConfig() {
       createdAt: Date.now()
     }
 
-    setProfiles([...profiles, newProfile])
     Profile.i().addProfile(newProfile)
   }
 
@@ -56,6 +56,7 @@ export default function ProfilesConfig() {
               canEdit={p.canEdit}
               onClick={() => Profile.i().setActiveProfile(p.id)}
               onSave={() => { new ProfileSave().save() }}
+              onRemove={() => Profile.i().removeProfile(p.id)}
             />
           )
         }

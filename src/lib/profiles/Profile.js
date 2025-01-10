@@ -17,13 +17,14 @@ export default class Profile extends Singleton {
         id: "completo",
         name: "Completo",
         canEdit: false,
+        canRemove: false,
         hidden_content: [],
         createdAt: Date.now()
       }
     )
 
     for (const profile of profiles) {
-      this.addProfile({ canEdit: true, ...profile })
+      this.addProfile({ canRemove: false, canEdit: true, ...profile })
     }
 
     this.setActiveProfile("completo")
@@ -34,8 +35,25 @@ export default class Profile extends Singleton {
   }
 
   addProfile(profile) {
-    this.profiles.push(profile)
+    this.profiles.push({
+      canRemove: true,
+      canEdit: true,
+      hidden_content: [],
+      createdAt: Date.now(),
+      ...profile
+    })
     this.setActiveProfile(profile.id)
+  }
+
+  removeProfile(profileId) {
+    let profileIndex = this.profiles.findIndex(p => p.id === profileId)
+    let removedProfile = this.profiles[profileIndex]
+
+    if (!removedProfile.canRemove)
+      return
+
+    this.profiles = this.profiles.filter(p => p.id !== profileId)
+    this.setActiveProfile(this.profiles[profileIndex - 1].id)
   }
 
   setActiveProfile(profileId) {

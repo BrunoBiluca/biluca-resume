@@ -161,3 +161,51 @@ test("não deve permitir entrar em modo de edição quando o modo está deslabil
 
   expect(profile.isEditMode).toBe(false)
 })
+
+test("deve remover um perfil localmente adicionado", async () => {
+  const profile = new Profile()
+
+  addCustomizableProfile(profile)
+
+  profile.removeProfile("novo-perfil")
+
+  expect(profile.getProfiles().filter(p => p.id === "novo-perfil")).toHaveLength(0)
+})
+
+test("não deve ser possível remover um perfil carregado inicialmente", async () => {
+  const profile = new Profile(
+    [
+      {
+        id: "novo-perfil",
+        name: "Novo perfil",
+        hidden_content: [],
+        createdAt: Date.now()
+      }
+    ]
+  )
+
+  profile.removeProfile("novo-perfil")
+
+  expect(profile.getProfiles().filter(p => p.id === "novo-perfil")).toHaveLength(1)
+})
+
+test("quando remover o perfil ativo, deve ser alterado o perfil ativo para o anterior", async () => {
+  const profile = new Profile()
+
+  profile.addProfile({
+    id: "novo-perfil-1",
+    name: "Novo perfil",
+    createdAt: Date.now()
+  })
+  profile.addProfile({
+    id: "novo-perfil-2",
+    name: "Novo perfil",
+    createdAt: Date.now()
+  })
+
+  expect(profile.getActiveProfile().id).toBe("novo-perfil-2")
+
+  profile.removeProfile("novo-perfil-2")
+
+  expect(profile.getActiveProfile().id).toBe("novo-perfil-1")
+})
