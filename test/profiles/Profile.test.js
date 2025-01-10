@@ -1,6 +1,6 @@
 import Profile from "../../src/lib/profiles/Profile"
 
-function addCustomizableProfile(profile){
+function addCustomizableProfile(profile) {
   profile.addProfile({
     id: "novo-perfil",
     name: "Novo perfil",
@@ -22,7 +22,7 @@ test('deve iniciar com o perfil completo', async () => {
 })
 
 test('deve permitir adicionar um novo perfil e defini-lo como ativo', async () => {
-  var profile =new Profile()
+  var profile = new Profile()
 
   let callback = false
   profile.subscribe(() => callback = true)
@@ -36,7 +36,7 @@ test('deve permitir adicionar um novo perfil e defini-lo como ativo', async () =
 })
 
 test('não deve permitir entrar em modo de edição quando o perfil ativo não pode ser editado', async () => {
-  var profile =new Profile()
+  var profile = new Profile()
 
   let isEditMode = false
   profile.subscribe(() => {
@@ -50,7 +50,7 @@ test('não deve permitir entrar em modo de edição quando o perfil ativo não p
 })
 
 test('deve permitir entrar em modo de edição quando o perfil ativo pode ser editado', async () => {
-  var profile =new Profile()
+  var profile = new Profile()
 
   let isEditMode = false
   profile.subscribe(() => {
@@ -65,7 +65,7 @@ test('deve permitir entrar em modo de edição quando o perfil ativo pode ser ed
 })
 
 test('deve permitir esconder um component do perfil ativo', async () => {
-  var profile =new Profile()
+  var profile = new Profile()
 
   let callback = false
   profile.subscribe(() => callback = true)
@@ -82,7 +82,7 @@ test('deve permitir esconder um component do perfil ativo', async () => {
 })
 
 test('deve permitir exibir um component do perfil ativo', async () => {
-  var profile =new Profile()
+  var profile = new Profile()
 
   addCustomizableProfile(profile)
   profile.enterEditMode()
@@ -97,7 +97,7 @@ test('deve permitir exibir um component do perfil ativo', async () => {
 })
 
 test('deve verificar se componente está escondido ou não pela chave', async () => {
-  let profile =new Profile()
+  let profile = new Profile()
 
   addCustomizableProfile(profile)
   profile.enterEditMode()
@@ -106,4 +106,37 @@ test('deve verificar se componente está escondido ou não pela chave', async ()
 
   expect(profile.isComponentHidden("componente-1")).toBe(true)
   expect(profile.isComponentHidden("componente-2")).toBe(false)
+})
+
+test("deve inicializar com outros perfis customizados", async () => {
+  const profile = new Profile(
+    [
+      {
+        id: "novo-perfil",
+        name: "Novo perfil",
+        hidden_content: [],
+        createdAt: Date.now()
+      }
+    ]
+  )
+
+  expect(profile.getProfiles().filter(p => p.id === "novo-perfil")).toHaveLength(1)
+})
+
+test("deve permitir entrar em modo de edição em perfis customizados adicionados na inicialização", async () => {
+  const profile = new Profile(
+    [
+      {
+        id: "novo-perfil",
+        name: "Novo perfil",
+        hidden_content: [],
+        createdAt: Date.now()
+      }
+    ]
+  )
+
+  profile.setActiveProfile("novo-perfil")
+  profile.enterEditMode()
+
+  expect(profile.isEditMode).toBe(true)
 })

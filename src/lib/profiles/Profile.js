@@ -21,7 +21,7 @@ export default class Profile extends Singleton {
     )
 
     for (const profile of profiles) {
-      this.addProfile(profile)
+      this.addProfile({ canEdit: true, ...profile })
     }
 
     this.setActiveProfile("completo")
