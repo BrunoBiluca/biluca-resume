@@ -171,7 +171,7 @@ __Critérios de aceite__
 	- O indicativo de informação escondida é removida
 	- O botão de esconder é exibido
 
-### ⬛ RF 03.05 - Salvar da configuração do perfil estaticamente
+### ⬛ RF 03.05 - Salvar/Carregar configuração de perfil estaticamente
 
 __Descrição__
 
@@ -217,13 +217,28 @@ __Critérios de aceite__
 - Quando seleciono um perfil na lista de exibição deve ser possível ter uma forma de duplicar
 - Quando um perfil é duplicado ele aparece com o nome do perfil original com o sufixo "- cópia"
 
+### 🌀  RF 03.08 - Objetivo do currículo
+
+__Descrição__
+
+Como autor quero definir qual o objetivo do currículo junto a configuração para que o avaliador do currículo entenda exatamente a vaga que estou aplicando.
+
+__Impacto__
+
+Como o currículo muda de forma dinâmica é importante que o objetivo do currículo também se adeque ao conteúdo do currículo. Não dá para enviar um currículo cheio de jogos feitos se o objetivo está como Backend developer.
+
+__Critérios de aceite__
+
+- Quando um perfil for selecionado o objetivo do currículo deve ser alterado para o definido pelo perfil
+- O objetivo do currículo deve permitir localização conforme a línguas configuradas no currículo
+
 # Especificação de arquitetura
 
 ### Diagramas arquiteturais, modelagem, relacionamentos...
 
-#### Estrutura de configuração
+#### Estrutura de configuração do perfil
 
-Estrutura da configuração é uma lista dos conteúdos escondidos, já que temos apenas esse se o conteúdo está escondido ou não, podemos rastrear apenas os conteúdos escondidos. Essa é uma estrutura simples e fácil de aplicar, cada novo conteúdo aparece como exibido conforme o requisito [[#⬛ RF 03.01 - Adição de perfis]].
+Estrutura da configuração é uma lista dos conteúdos escondidos. Essa é uma estrutura simples e fácil de aplicar, cada novo conteúdo aparece como exibido conforme o requisito [[#⬛ RF 03.01 - Adição de perfis]].
 
 ```json
 // estrutura da configuração
@@ -239,18 +254,21 @@ Estrutura da configuração é uma lista dos conteúdos escondidos, já que temo
 }
 ```
 
-#### Salvamento de configurações estaticamente
+Qualquer novo conteúdo adicionado ao arquivo de currículo completo será dado como um conteúdo em exibição. 
 
-No requisito [[#⬛ RF 03.05 - Salvar da configuração do perfil estaticamente]] é necessário ter acesso aos dados de forma estática do perfil. A estrutura de configuração será consolidada em um arquivo que então pode ser baixado pelo autor do currículo.
+O identificador utilizado para definir os conteúdos escondidos é obtido a partir do campo `id` definido na raiz do objeto de configuração do componente. Em caso de remoção ou alteração do `id` do componente, esse componente passa a não ser mais listado e será exibido no currículo.
 
-Esse arquivo pode ser então adicionado a pasta `public/resume` que será reconhecido como perfil automaticamente a partir da sua nomenclatura.
+#### Salvamento/Carregamento de configurações estaticamente
+
+No requisito RF 03.05 é necessário ter acesso aos dados de forma estática do perfil. A estrutura de configuração será consolidada em um arquivo que então pode ser baixado pelo autor do currículo.
+
+Esse arquivo pode ser então adicionado a pasta `public/resume` que pode ser lido para passar como parâmetro no currículo.
 
 Nomenclatura de perfil em arquivo:
 
-- `perfil_XXX`
+- `XXX.profile.json`
 
-Onde `XXX` é o valor correspondente ao id do perfil. Isso impede ter termos conflitos entre os perfis publicados.
-
+Onde `XXX` é o valor correspondente ao nome do perfil. Isso impede ter termos conflitos entre os perfis publicados.
 
 ### Descrição de estratégias e soluções técnicas
 
