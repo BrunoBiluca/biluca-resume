@@ -140,3 +140,24 @@ test("deve permitir entrar em modo de edição em perfis customizados adicionado
 
   expect(profile.isEditMode).toBe(true)
 })
+
+test("não deve permitir entrar em modo de edição quando o modo está deslabilitado", async () => {
+  const disableEditMode = true
+
+  const profile = new Profile(
+    [
+      {
+        id: "novo-perfil",
+        name: "Novo perfil",
+        hidden_content: [],
+        createdAt: Date.now()
+      }
+    ],
+    disableEditMode
+  )
+
+  profile.setActiveProfile("novo-perfil")
+  profile.enterEditMode()
+
+  expect(profile.isEditMode).toBe(false)
+})

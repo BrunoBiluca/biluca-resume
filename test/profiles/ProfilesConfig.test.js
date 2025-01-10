@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react"
 import { userEvent } from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import ProfilesConfig from "../../src/lib/profiles/ProfilesConfig"
+import Profile from "../../src/lib/profiles/Profile"
 
 
 test('deve exibir os elementos fixos do painel', async () => {
@@ -23,4 +24,12 @@ test('deve adicionar um perfil quando o botão de adicionar for pressionado', as
 
   expect(screen.getByRole('option', { name: 'Novo perfil' })).toBeInTheDocument()
   expect(screen.getByRole('option', { name: 'Novo perfil 2' })).toBeInTheDocument()
+})
+
+test("não deve exibir comandos de configuração de perfil quando o modo de edição está desabilitado", async () => {
+  Profile.setInstance(new Profile([], true))
+  
+  render(<ProfilesConfig />)
+
+  expect(screen.queryByRole('button', { name: 'Adicionar' })).not.toBeInTheDocument()
 })

@@ -28,11 +28,11 @@ function ResumeCanvas({ theme }) {
 }
 
 
-function Resume({ data, profiles, variables }) {
+function Resume({ data, profiles, variables, disableEditMode = false }) {
   let theme = new ThemesFactory().instantiate(data)
   ComponentsFactory.setInstance(theme.components())
   Locale.setInstance(new Locale(data["locale"]))
-  Profile.setInstance(new Profile(profiles))
+  Profile.setInstance(new Profile(profiles, disableEditMode))
 
   return <div className={styles.resume} style={variables ?? theme.variables()} >
     <Config />

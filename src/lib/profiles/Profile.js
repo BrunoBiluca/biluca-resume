@@ -7,8 +7,10 @@ export default class Profile extends Singleton {
   activeProfile = { key: "unknow", order: 0 }
   isEditMode = false
 
-  constructor(profiles = []) {
+  constructor(profiles = [], isEditModeDisabled = false) {
     super()
+
+    this.isEditModeDisabled = isEditModeDisabled
 
     this.addProfile(
       {
@@ -42,6 +44,7 @@ export default class Profile extends Singleton {
   }
 
   enterEditMode() {
+    if (this.isEditModeDisabled) return
     if (!this.activeProfile.canEdit) return
 
     this.isEditMode = true

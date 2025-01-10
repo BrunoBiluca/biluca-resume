@@ -16,8 +16,6 @@ export default function ProfilesConfig() {
   })
 
   function addProfile() {
-    console.log("Adicionar perfil")
-
     let newProfileName = "Novo perfil"
 
     const count = profiles.filter(p => p.name.startsWith("Novo perfil")).length + 1
@@ -39,10 +37,15 @@ export default function ProfilesConfig() {
 
   return (
     <BasePanel title="Perfis">
-      <div>
-        <button onClick={addProfile}>Adicionar</button>
-      </div>
-      <hr />
+      {
+        !Profile.i().isEditModeDisabled &&
+        <>
+          <div>
+            <button onClick={addProfile}>Adicionar</button>
+          </div>
+          <hr />
+        </>
+      }
       <div id="profiles" className={styles.profiles}>
         {
           profiles.map(p =>

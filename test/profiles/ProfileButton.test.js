@@ -79,3 +79,20 @@ test("deve exibir o botão salvar a edição do perfil para ter acesso a configu
 
   expect(wasSaved).toBe(true)
 })
+
+test("não deve exibir os botões de controle quando o modo de edição estiver desativado", async () => {
+  Profile.setInstance(new Profile([], true))
+
+  render(<ProfileButton
+    key="1"
+    name="Novo perfil"
+    isActive={true}
+    canEdit={true}
+    onClick={() => { }}
+  />)
+
+  expect(screen.queryByRole('button', { name: 'Salvar' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: 'Editar' })).not.toBeInTheDocument()
+
+  Profile.setInstance(new Profile([]))
+})

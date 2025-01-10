@@ -4,6 +4,7 @@ import Profile from "./Profile"
 export default function ProfileButton({ name, isActive, canEdit, onClick, onSave }) {
 
   const [isEditMode, setIsEditMode] = React.useState(Profile.i().isEditMode)
+  const editModeAbled = !Profile.i().isEditModeDisabled
 
   return <div style={{ display: "grid" }}>
     <button
@@ -17,7 +18,7 @@ export default function ProfileButton({ name, isActive, canEdit, onClick, onSave
       {name}
     </button>
     {
-      isActive && canEdit &&
+      editModeAbled && isActive && canEdit &&
       <>
         <button
           style={{ backgroundColor: isEditMode ? "green" : "gray" }}

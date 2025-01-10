@@ -18,8 +18,6 @@ export default class Entry {
   }
 
   key() {
-    if (!this.data.hasOwnProperty("id"))
-      console.log(this.type)
     return this.data["id"]
   }
 }
