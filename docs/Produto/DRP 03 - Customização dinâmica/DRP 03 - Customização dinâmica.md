@@ -76,7 +76,7 @@ __Critérios de aceite__
 
 - Quando o perfil completo é atualizado, as novas informações devem aparecer como escondidas em perfil já adicionado
 
-### ⬛ RF 03.01.01 - Renomear perfil
+### ⬛ RF 03.01.01 - Renomear perfil 
 
 __Descrição__
 
@@ -91,11 +91,11 @@ __Critérios de aceite__
 - Quando um perfil tem seu nome alterado deve registrar essa informação para futuros carregamentos
 
 
-### ⬛ RF 03.02 - Remoção de perfis
+### ⬛ RF 03.02 - Remoção de perfis locais
 
 __Descrição__
 
-Como autor do currículo quero poder remover os perfis criados para poder selecionar apenas perfis relevantes para exibição.
+Como autor do currículo quero poder remover os perfis criados localmente para facilitar o meu gerenciamento na construção de currículos.
 
 __Impacto__
 
@@ -258,6 +258,18 @@ Qualquer novo conteúdo adicionado ao arquivo de currículo completo será dado 
 
 O identificador utilizado para definir os conteúdos escondidos é obtido a partir do campo `id` definido na raiz do objeto de configuração do componente. Em caso de remoção ou alteração do `id` do componente, esse componente passa a não ser mais listado e será exibido no currículo.
 
+### Descrição de estratégias e soluções técnicas
+
+Como a estrutura do currículo não define nenhum identificador para nenhum dos conteúdos, dificultando as referências de esconder e exibir baseados apenas nos títulos.
+
+O arquivo de configuração é baseado então nos identificadores de cada conteúdo. Dessa forma mesmo tendo alteração entre as informações os identificadores ficam estáticos.
+
+#### Armazenamento local das configurações de perfil
+
+As configurações de perfis serão armazenadas no armazenamento local do navegador. A ideia aqui é que podemos montar um currículo ao longo de um tempo maior, sem preocupar em perder alterações ao longo de recarregamentos da página.
+
+Dessa forma também o autor do currículo pode gerar vários currículos locais, que não serão exibidos para os visitantes podendo assim escolher apenas os mais relevantes para serem exibidos.
+
 #### Salvamento/Carregamento de configurações estaticamente
 
 No requisito RF 03.05 é necessário ter acesso aos dados de forma estática do perfil. A estrutura de configuração será consolidada em um arquivo que então pode ser baixado pelo autor do currículo.
@@ -269,12 +281,6 @@ Nomenclatura de perfil em arquivo:
 - `XXX.profile.json`
 
 Onde `XXX` é o valor correspondente ao nome do perfil. Isso impede ter termos conflitos entre os perfis publicados.
-
-### Descrição de estratégias e soluções técnicas
-
-Como a estrutura do currículo não define nenhum identificador para nenhum dos conteúdos, dificultando as referências de esconder e exibir baseados apenas nos títulos.
-
-O arquivo de configuração é baseado então nos identificadores de cada conteúdo. Dessa forma mesmo tendo alteração entre as informações os identificadores ficam estáticos.
 
 ## Requisitos técnicos
 
