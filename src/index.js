@@ -7,6 +7,7 @@ import { Resume } from "./lib";
 
 function App() {
   let [resume, setResume] = useState(null)
+  let [profiles, setProfiles] = useState([])
 
   useEffect(() => {
     async function fetchResumeData() {
@@ -14,14 +15,22 @@ function App() {
       const resumeJson = await request.json()
       setResume(resumeJson)
     }
+
+    async function fetchProfileData() {
+      const request = await fetch("./resume/profiles.json")
+      const profileJson = await request.json()
+      setProfiles(profileJson)
+    }
+
     fetchResumeData()
+    fetchProfileData()
   }, [])
 
   return (
     <div className={styles.app}>
       {
         resume &&
-        <Resume data={resume} />
+        <Resume data={resume} profiles={profiles} />
       }
     </div>
   )

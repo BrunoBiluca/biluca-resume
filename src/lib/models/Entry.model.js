@@ -18,6 +18,8 @@ export default class Entry {
   }
 
   key() {
-    return JSON.stringify(this.data).trim().slice(0, 255)
+    if (!this.data.hasOwnProperty("id"))
+      console.log(this.type)
+    return this.data["id"]
   }
 }

@@ -8,7 +8,7 @@ export default function OnePagerResume({ resume }) {
   return <Page background={resume.theme.background}>
     {cfac().render(resume.mainInformation)}
     <GridColumns>
-      <Side>
+      <Side key={"side"}>
         {cfac().render(resume.contactInfo)}
         {
           resume.sections
@@ -16,7 +16,7 @@ export default function OnePagerResume({ resume }) {
             .map(sec => new ResumeComponent(sec, <Section key={sec.key()} section={sec} padding={0} />).render())
         }
       </Side>
-      <Main>
+      <Main key={"main"}>
         {
           resume.sections
             ?.filter(s => !s.theme)

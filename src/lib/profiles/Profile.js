@@ -7,7 +7,7 @@ export default class Profile extends Singleton {
   activeProfile = { key: "unknow", order: 0 }
   isEditMode = false
 
-  constructor() {
+  constructor(profiles = []) {
     super()
 
     this.addProfile(
@@ -19,6 +19,12 @@ export default class Profile extends Singleton {
         createdAt: Date.now()
       }
     )
+
+    for (const profile of profiles) {
+      this.addProfile(profile)
+    }
+
+    this.setActiveProfile("completo")
   }
 
   getProfiles() {
