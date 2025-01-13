@@ -1,4 +1,5 @@
 import Singleton from "../core/abstract/Singleton";
+import ProfileLocalStorage from "./ProfileLocalStorage";
 
 export default class Profile extends Singleton {
   onChangeCallbacks = []
@@ -7,31 +8,51 @@ export default class Profile extends Singleton {
   activeProfile = { key: "unknow", order: 0 }
   isEditMode = false
 
-  constructor(profiles = [], isEditModeDisabled = false) {
+  constructor(
+    externalProfiles = [],
+    isEditModeDisabled = false,
+  ) {
     super()
+
+    this.storage = new ProfileLocalStorage()
 
     this.isEditModeDisabled = isEditModeDisabled
 
-    this.addProfile(
+    this.addFixedProfile(
       {
         id: "completo",
         name: "Completo",
-        canEdit: false,
-        canRemove: false,
         hidden_content: [],
         createdAt: Date.now()
-      }
+      },
+      false
     )
 
-    for (const profile of profiles) {
-      this.addProfile({ canRemove: false, canEdit: true, ...profile })
+    for (const profile of externalProfiles) {
+      this.addFixedProfile(profile, true)
     }
+
+    for (const profile of this.storage.getProfiles()) {
+      this.addProfile(profile)
+    }
+
+    console.log(this.profiles)
 
     this.setActiveProfile("completo")
   }
 
   getProfiles() {
     return this.profiles;
+  }
+
+  addFixedProfile(profile, canEdit) {
+    this.profiles.push({
+      canRemove: false,
+      canEdit: canEdit,
+      ...profile
+    })
+
+    this.setActiveProfile(profile.id)
   }
 
   addProfile(profile) {
@@ -42,6 +63,9 @@ export default class Profile extends Singleton {
       createdAt: Date.now(),
       ...profile
     })
+
+    this.storage.updateProfile(profile)
+
     this.setActiveProfile(profile.id)
   }
 
@@ -53,6 +77,7 @@ export default class Profile extends Singleton {
       return
 
     this.profiles = this.profiles.filter(p => p.id !== profileId)
+    this.storage.removeProfileRegistry(profileId)
     this.setActiveProfile(this.profiles[profileIndex - 1].id)
   }
 
@@ -81,12 +106,14 @@ export default class Profile extends Singleton {
   hideComponent(componentId) {
     if (!this.isEditMode) return
     this.activeProfile.hidden_content.push(componentId)
+    this.storage.updateProfile(this.activeProfile)
     this.runCallbacks()
   }
 
   showComponent(componentId) {
     if (!this.isEditMode) return
     this.activeProfile.hidden_content = this.activeProfile.hidden_content.filter(c => c !== componentId)
+    this.storage.updateProfile(this.activeProfile)
     this.runCallbacks()
   }
 

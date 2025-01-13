@@ -5,8 +5,18 @@ import '@testing-library/jest-dom'
 import ProfilesConfig from "../../src/lib/profiles/ProfilesConfig"
 import Profile from "../../src/lib/profiles/Profile"
 
+jest.mock("../../src/lib/profiles/ProfileLocalStorage", () => {
+  return jest.fn().mockImplementation(() => ({
+    updateProfile: jest.fn(),
+    removeProfileRegistry: jest.fn(),
+    getProfiles: jest.fn(() => [])
+  }))
+})
 
-beforeEach(() => { Profile.setInstance(new Profile()) })
+beforeEach(() => { 
+  
+  Profile.setInstance(new Profile()) 
+})
 
 test('deve exibir os elementos fixos do painel', async () => {
   render(<ProfilesConfig />)
