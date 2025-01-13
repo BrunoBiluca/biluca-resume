@@ -217,7 +217,7 @@ __Critérios de aceite__
 - Quando seleciono um perfil na lista de exibição deve ser possível ter uma forma de duplicar
 - Quando um perfil é duplicado ele aparece com o nome do perfil original com o sufixo "- cópia"
 
-### 🌀  RF 03.08 - Objetivo do currículo
+### ⬛ RF 03.08 - Objetivo do currículo
 
 __Descrição__
 
@@ -231,6 +231,8 @@ __Critérios de aceite__
 
 - Quando um perfil for selecionado o objetivo do currículo deve ser alterado para o definido pelo perfil
 - O objetivo do currículo deve permitir localização conforme a línguas configuradas no currículo
+- Quando o perfil estiver em edição deve aparecer um botão de editar o objetivo do currículo
+- Quando o botão de editar o objetivo do perfil for acionado deve permitir entrar com um novo texto
 
 # Especificação de arquitetura
 
