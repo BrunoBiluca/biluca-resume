@@ -270,6 +270,11 @@ As configurações de perfis serão armazenadas no armazenamento local do navega
 
 Dessa forma também o autor do currículo pode gerar vários currículos locais, que não serão exibidos para os visitantes podendo assim escolher apenas os mais relevantes para serem exibidos.
 
+O armazenamento é feito pelo `localStorage` da seguinte maneira:
+
+- É criada uma chave `profiles` que armazena a referência dos identificadores de cada perfil, essa chave é utilizada para buscar as informações de cada perfil
+- É criada uma chave para cada perfil no formato `profile.<identificador>` que armazena todas as informações do perfil.
+
 #### Salvamento/Carregamento de configurações estaticamente
 
 No requisito RF 03.05 é necessário ter acesso aos dados de forma estática do perfil. A estrutura de configuração será consolidada em um arquivo que então pode ser baixado pelo autor do currículo.
