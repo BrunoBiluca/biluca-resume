@@ -8,12 +8,12 @@
 
 # ⬛ Requisitos abertos
 
-- [[DRP 03 - Customização dinâmica]]
+- 
 - 
 
 # ☑️ Requisitos parcialmente concluídos
 
-- 
+- [[DRP 03 - Customização dinâmica]]
 
 
 #  ✅ Requisitos concluídos

@@ -1,75 +1,131 @@
 # DRP - 04 - Habilidades 2.0
 
 > [!important] Resumo
-> As habilidades do currículo serão exibidas de acordo com as outras informações, como experiências, educação, projetos pessoais. Dessa forma podemos relacionar essas informações com as habilidades, facilitando assim que tipos de perfis específicos foquem nas habilidades relevantes.
+> As habilidades e competências do currículo são pontos muito relevantes para os avaliadores (humano ou máquina), eles buscam essas informações como palavras-chave para entender se os requisitos da vaga batem com o candidato. Assim, é importante ter uma seção de habilidades e competências bem destacada e direta, com informações suficientes para o avaliador fazer esse tipo de análise
 
 Objetivos:
 
-- __- Objetivo 1 com a realização do projeto -__
+- Aumentar a taxa de conversão do currículo em relação a vagas
 
 Métricas para mensurar sucesso:
 
-- __- Métrica relacionada ao objetivo 1 -__
+- Aumento de chamada para entrevista com os currículos gerados
 
 Métricas para monitorar:
 
-- __- demais métricas que podem influenciar em outros aspectos do produto, como performance, satisfação do usuários -__
+- Nenhuma outra
 
 # Contexto
 
-<Breve descrição dos motivos que levaram a pensar no produto> 
+Em vários guias de criação de currículo é destacado a necessidade direta de citações as habilidades e competências relacionadas as vagas. 
+
+Avaliadores de currículos (humanos ou máquinas) também utilizam essas informações para verificar rapidamente a compatibilidade do candidato a vaga.
 
 ### Hipóteses
 
-- __Hipótese 1__
+- Com uma seção de habilidades mais destacada e com mais informações, o currículo será chamado mais para entrevistas em vagas com alta relevância.
 
 ### Restrições
 
-- __Restrição 1__
+- Nenhuma
+
 ### Dependências
 
-- __Dependência 1__
+- Nenhuma
 
 ### Dúvidas
 
-- __Dúvida 1__
+- Nenhuma
 
 ### Fora do escopo
 
-- __Fora do escopo 1__
+- Não definido
 
 ### Referências
 
-- __Referências de concorrentes ou inspirações__
+- Guias de criação de currículos: apresentam a necessidade dessas informações para qualquer tipo de avaliador
 
 # Requisitos
 
-### RF - {ID - título}
+### ⬛ RF 04.01 - Categorias de habilidades
 
-__Descrição (Modelo AS... IN ORDER TO ... I WANT)__
+__Descrição__
+
+Como avaliador de currículo quero ter a informação mais direta sobre as principais habilidades do candidato a fim de validar a compatibilidade do candidato e vaga.
 
 __Impacto__
 
-#### Critérios de aceite
+Facilitar aos avaliadores terem informações sobre as principais habilidades do candidato separado por categorias pode facilitar pessoas que não tem perfil técnico a entender comparar com as vagas disponíveis.
 
-- __CA 1__
+__Critérios de aceite__
+
+- Quando habilidades da mesma categoria são definidas elas devem aparecer juntas
+- Quando uma categoria não tem nenhuma habilidade definida ela não deve aparecer no currículo
+
+### ⬛ RF 04.02 - Proficiência de habilidades
+
+__Descrição__
+
+Como avaliador de currículo quero ter informações sobre a proficiência das habilidades do candidato em relação as competências necessárias da vaga disponível a fim de validar a compatibilidade do candidato e vaga.
+
+__Impacto__
+
+Ter informações sobre a proficiência ajuda o avaliador a comparar com os requisitos da vaga.
+
+__Critérios de aceite__
+
+- Quando uma proficiência for definida ela deve ser exibida no currículo
 
 # Especificação de arquitetura
 
-__Diagramas arquiteturais, modelagem, relacionamentos...__
+### Diagramas arquiteturais, modelagem, relacionamentos...
 
-__Descrição de estratégias e soluções técnicas__
+#### Modelo de categoria de habilidade
+
+As categorias de habilidades são definidas na própria seção de habilidades:
+
+```json
+{
+  "title": locale(),
+  "type": "Skill",
+  "categories": [
+	  {
+		  "category_id": "category_1",
+		  "label": locale()
+	  }
+  ],
+  "entries": [
+    {
+	  "category_id": "category_1",
+      "label": locale()
+    }
+  ]
+}
+```
+
+`locale()` é uma lista de strings onde cada linha significa o valor em uma língua definida na seção de `locale`.
+
+### Descrição de estratégias e soluções técnicas
+
+As categorias e informações de proficiência são definidas na estrutura do currículo.
 
 ## Requisitos técnicos
 
+- Alterar a estrutura do currículo para incrementar os novos requisitos
 
 ## Requisitos não funcionais
 
+- Nenhum
 
 # Qualidade
 
 - __Definição de Pronto__
+
+Nenhum
+
 - __Planos de testes__
+
+Nenhum
 
 # Esboços ou protótipos de UX
 
