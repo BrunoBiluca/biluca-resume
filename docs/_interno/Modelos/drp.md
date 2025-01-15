@@ -46,19 +46,21 @@ Métricas para monitorar:
 
 ### RF - {ID - título}
 
-__Descrição (Modelo AS... IN ORDER TO ... I WANT)__
+__Descrição__
 
 __Impacto__
 
-#### Critérios de aceite
+__Critérios de aceite__
 
 - __CA 1__
 
 # Especificação de arquitetura
 
-__Diagramas arquiteturais, modelagem, relacionamentos...__
+### Descrição de estratégias e soluções técnicas
 
-__Descrição de estratégias e soluções técnicas__
+
+### Diagramas arquiteturais, modelagem, relacionamentos...
+
 
 ## Requisitos técnicos
 

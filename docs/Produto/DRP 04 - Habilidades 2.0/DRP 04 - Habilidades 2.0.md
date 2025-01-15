@@ -5,7 +5,7 @@
 
 Objetivos:
 
-- Aumentar a taxa de conversão do currículo em relação a vagas
+- Aumentar a taxa de conversão do currículo em relação a vagas (chamamento para entrevistas)
 
 Métricas para mensurar sucesso:
 
@@ -78,6 +78,11 @@ __Critérios de aceite__
 
 # Especificação de arquitetura
 
+
+### Descrição de estratégias e soluções técnicas
+
+As categorias e informações de proficiência são definidas na estrutura do currículo.
+
 ### Diagramas arquiteturais, modelagem, relacionamentos...
 
 #### Modelo de categoria de habilidade
@@ -90,24 +95,22 @@ As categorias de habilidades são definidas na própria seção de habilidades:
   "type": "Skill",
   "categories": [
 	  {
-		  "category_id": "category_1",
+		  "id": "category_1",
 		  "label": locale()
 	  }
   ],
   "entries": [
     {
+	  "id": "",
 	  "category_id": "category_1",
-      "label": locale()
+      "label": locale(),
+      "proficiency": locale()
     }
   ]
 }
 ```
 
 `locale()` é uma lista de strings onde cada linha significa o valor em uma língua definida na seção de `locale`.
-
-### Descrição de estratégias e soluções técnicas
-
-As categorias e informações de proficiência são definidas na estrutura do currículo.
 
 ## Requisitos técnicos
 

@@ -1,7 +1,7 @@
 # DRP 05 - Modelo 2
 
 > [!important] Resumo
-> Ter um outro modelo definido pode ajudar a definir melhor o projeto enquanto estrutura, além de que pessoas diferentes podem na gostar do modelo padrão disponível.
+> Ter um outro modelo definido pode ajudar a definir melhor o projeto enquanto estrutura, além de que pessoas diferentes tem mais opções para exibir suas informações.
 
 Objetivos:
 
@@ -18,59 +18,90 @@ Métricas para monitorar:
 
 # Contexto
 
-<Breve descrição dos motivos que levaram a pensar no produto> 
+Atualmente existe apenas um único modelo disponível na biblioteca.
 
 ### Hipóteses
 
-- __Hipótese 1__
+- Com mais modelos, mais pessoas podem se interessar na biblioteca para incorporarem em seus sites.
 
 ### Restrições
 
-- __Restrição 1__
+- Nenhuma
+
 ### Dependências
 
-- __Dependência 1__
+- Nenhuma
 
 ### Dúvidas
 
-- __Dúvida 1__
+- Nenhuma
 
 ### Fora do escopo
 
-- __Fora do escopo 1__
+- Alterar ou adicionar informações a estrutura do currículo.
 
 ### Referências
 
-- __Referências de concorrentes ou inspirações__
+- Todo gerador de currículo apresenta vários modelos disponíveis, assim essa biblioteca não deve ser diferente.
 
 # Requisitos
 
-### RF - {ID - título}
+### RF 05.01 - Componentes obrigatórios no modelo 2
 
-__Descrição (Modelo AS... IN ORDER TO ... I WANT)__
+__Descrição__
+
+Como autor quero exibir informações em de todos os tipos obrigatórios já definidos nos demais modelos.
+
+Componentes obrigatórios:
+
+- Resumo
+- Informações de contato
+- Experiências de trabalho
+- Educação
+- Habilidades
+- Projetos
+- Línguas
 
 __Impacto__
 
-#### Critérios de aceite
+Ter mais um modelo permite aos usuários da biblioteca terem mais opções para exibirem suas informações em formatos que sejam mais interessantes
 
-- __CA 1__
+__Critérios de aceite__
+
+- Quando informações forem definidas devem ser exibidas
+	- Resumo
+	- Informações de contato
+	- Experiências de trabalho
+	- Educação
+	- Habilidades
+	- Projetos
+	- Línguas
+
+- Deve permitir utilizar o [[DRP 03 - Customização dinâmica]] como em qualquer outro modelo
 
 # Especificação de arquitetura
 
-__Diagramas arquiteturais, modelagem, relacionamentos...__
-
 __Descrição de estratégias e soluções técnicas__
+
+Será utilizado o próprio sistema definido em [[Arquitetura]].
+
+__Diagramas arquiteturais, modelagem, relacionamentos...__
 
 ## Requisitos técnicos
 
-
+- Utilizar o sistema de temas já definido
 ## Requisitos não funcionais
 
-
+- nenhum
 # Qualidade
 
 - __Definição de Pronto__
+
+Nenhum
+
 - __Planos de testes__
+
+Olhar e verificar se tá tudo certo, baseado na minha própria cabeça
 
 # Esboços ou protótipos de UX
 
