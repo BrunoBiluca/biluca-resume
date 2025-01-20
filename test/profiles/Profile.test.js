@@ -208,7 +208,7 @@ test("não deve ser possível remover um perfil fixo", async () => {
   profile.removeProfile("novo-perfil")
 
   expect(profile.getProfiles().find(p => p.id === "novo-perfil")).toBeDefined()
-  expect(mockRemoveProfile).toHaveBeenCalledTimes(0) 
+  expect(mockRemoveProfile).toHaveBeenCalledTimes(0)
 })
 
 test("quando remover o perfil ativo, deve ser alterado o perfil ativo para o anterior", async () => {
@@ -230,7 +230,7 @@ test("quando remover o perfil ativo, deve ser alterado o perfil ativo para o ant
   profile.removeProfile("novo-perfil-2")
 
   expect(profile.getActiveProfile().id).toBe("novo-perfil-1")
-  expect(mockRemoveProfile).toHaveBeenCalledTimes(1) 
+  expect(mockRemoveProfile).toHaveBeenCalledTimes(1)
 })
 
 test("deve carregar os perfis quando armazenados inicialmente", async () => {
@@ -245,4 +245,50 @@ test("deve carregar os perfis quando armazenados inicialmente", async () => {
 
   // perfis: completo e perfil-local-1
   expect(profile.getProfiles()).toHaveLength(2)
+})
+
+test("deve carregar o objetivo do perfil com o armazenado", async () => {
+  const profile = new Profile([
+    {
+      "id": "9e4b92c9-6c4f-42cf-87b9-45df506442e4",
+      "name": "Backend",
+      "goal": [
+        "Desenvolvedor Backend Python",
+        "Python backend developer"
+      ],
+      "hidden_content": [
+        "unity",
+        "godot",
+        "csharp",
+        "games"
+      ],
+      "createdAt": 1736516017607
+    }
+  ])
+  profile.setActiveProfile("9e4b92c9-6c4f-42cf-87b9-45df506442e4")
+
+  expect(profile.getGoal()).toStrictEqual([
+    "Desenvolvedor Backend Python",
+    "Python backend developer"
+  ])
+})
+
+test("deve atualizar uma informações de objetivo de perfil", async () => {
+  const profile = new Profile()
+
+  profile.addProfile({
+    id: "novo-perfil-1",
+    name: "Novo perfil",
+    createdAt: Date.now()
+  })
+
+  profile.setGoal(2, "Objetivo na língua 3")
+  profile.setGoal(0, "Objetivo na língua 1")
+  profile.setGoal(1, "Objetivo na língua 2")
+
+  expect(profile.getGoal()).toStrictEqual([
+    "Objetivo na língua 1",
+    "Objetivo na língua 2",
+    "Objetivo na língua 3"
+  ])
 })

@@ -22,6 +22,7 @@ export default class Profile extends Singleton {
       {
         id: "completo",
         name: "Completo",
+        goal: [""],
         hidden_content: [],
         createdAt: Date.now()
       },
@@ -35,8 +36,6 @@ export default class Profile extends Singleton {
     for (const profile of this.storage.getProfiles()) {
       this.addProfile(profile)
     }
-
-    console.log(this.profiles)
 
     this.setActiveProfile("completo")
   }
@@ -59,6 +58,7 @@ export default class Profile extends Singleton {
     this.profiles.push({
       canRemove: true,
       canEdit: true,
+      goal: [""],
       hidden_content: [],
       createdAt: Date.now(),
       ...profile
@@ -106,19 +106,35 @@ export default class Profile extends Singleton {
   hideComponent(componentId) {
     if (!this.isEditMode) return
     this.activeProfile.hidden_content.push(componentId)
-    this.storage.updateProfile(this.activeProfile)
+
+    if (this.activeProfile.canRemove)
+      this.storage.updateProfile(this.activeProfile)
     this.runCallbacks()
   }
 
   showComponent(componentId) {
     if (!this.isEditMode) return
     this.activeProfile.hidden_content = this.activeProfile.hidden_content.filter(c => c !== componentId)
-    this.storage.updateProfile(this.activeProfile)
+
+    if (this.activeProfile.canRemove)
+      this.storage.updateProfile(this.activeProfile)
     this.runCallbacks()
   }
 
   isComponentHidden(componentId) {
     return this.activeProfile.hidden_content.includes(componentId)
+  }
+
+  getGoal() {
+    return this.activeProfile.goal
+  }
+
+  setGoal(language_order, goal) {
+    this.activeProfile.goal[language_order] = goal
+
+    if (this.activeProfile.canRemove)
+      this.storage.updateProfile(this.activeProfile)
+    this.runCallbacks()
   }
 
   subscribe(callback) {

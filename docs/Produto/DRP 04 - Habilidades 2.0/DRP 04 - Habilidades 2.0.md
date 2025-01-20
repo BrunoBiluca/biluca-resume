@@ -74,7 +74,8 @@ Ter informações sobre a proficiência ajuda o avaliador a comparar com os requ
 
 __Critérios de aceite__
 
-- Quando uma proficiência for definida ela deve ser exibida no currículo
+- Quando a proficiência for definida ela deve ser exibida no currículo
+- Quando a proficiência não for definida não deve ser exibido no currículo
 
 # Especificação de arquitetura
 

@@ -11,7 +11,6 @@ export default class MainInformation extends Entry {
     this.picture = data["picture"]
     this.name = data["name"]
     this.summary = loc(data["summary"])
-    this.goal = loc(data["goal"])
+    this.goal = data["goal"]
   }
-
 }
