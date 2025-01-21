@@ -22,7 +22,7 @@ export default class Profile extends Singleton {
       {
         id: "completo",
         name: "Completo",
-        goal: [""],
+        goal: [],
         hidden_content: [],
         createdAt: Date.now()
       },
@@ -58,7 +58,7 @@ export default class Profile extends Singleton {
     this.profiles.push({
       canRemove: true,
       canEdit: true,
-      goal: [""],
+      goal: [],
       hidden_content: [],
       createdAt: Date.now(),
       ...profile

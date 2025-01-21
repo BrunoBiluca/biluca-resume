@@ -11,12 +11,12 @@ export function loc(text) {
 }
 
 export default function LocaleText({ values }) {
-  const [text, setText] = useState(values[0])
+  const [text, setText] = useState(values[Locale.i().getOrder()])
   Locale.i().subscribe(updateText)
 
   function updateText(active) {
     let order = active.order < values.length ? active.order : 0;
-
+    console.log(order)
     if (!isNullOrEmpty(values[order])) {
       setText(values[order])
     }
@@ -26,24 +26,30 @@ export default function LocaleText({ values }) {
   }
 
   useEffect(() => {
-    if (!isNullOrEmpty(values[0])) {
-      let order = 0
-      for (let locale of Locale.i().available()) {
-        if (order++ >= values.length && isNullOrEmpty(values[order])) {
-          console.info(
-            `[Locale Warning] Texto '${values[0]}' não está localizada para ${locale.label}`
-          )
-        }
-      }
-    }
-    setText(values[0])
+    alertNotLocatedText(values)
+    setText(values[Locale.i().getOrder()])
   }, [values])
 
   return <>{HTMLReactParser(text)}</>
 }
 
+function alertNotLocatedText(values) {
+  if (process.env.SHOW_LOCATION_ALERTS != "true") return
+
+  if (!isNullOrEmpty(values[0])) {
+    let order = 0
+    for (let locale of Locale.i().available()) {
+      if (order++ >= values.length && isNullOrEmpty(values[order])) {
+        console.info(
+          `[Locale Warning] Texto '${values[0]}' não está localizada para ${locale.label}`
+        )
+      }
+    }
+  }
+}
+
 export function LocaleInput({ values, onChange }) {
-  const [text, setText] = useState(values[0])
+  const [text, setText] = useState(values[Locale.i().getOrder()])
   Locale.i().subscribe(updateText)
 
   function updateText(active) {
@@ -52,24 +58,15 @@ export function LocaleInput({ values, onChange }) {
   }
 
   useEffect(() => {
-    if (!isNullOrEmpty(values[0])) {
-      let order = 0
-      for (let locale of Locale.i().available()) {
-        if (order++ >= values.length && isNullOrEmpty(values[order])) {
-          console.info(
-            `[Locale Warning] Texto '${values[0]}' não está localizada para ${locale.label}`
-          )
-        }
-      }
-    }
-    setText(values[0])
+    alertNotLocatedText(values)
+    setText(values[Locale.i().getOrder()])
   }, [values])
 
   return <input
     value={text}
     onChange={e => {
       setText(e.target.value)
-      onChange({ order: Locale.i().active().order, value: e.target.value })
+      onChange({ order: Locale.i().getOrder(), value: e.target.value })
     }}
   />
 }

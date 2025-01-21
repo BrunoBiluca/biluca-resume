@@ -7,9 +7,15 @@ import LocaleText, { LocaleInput } from '../../locale/LocaleText';
 export default function MainInformation({ info }) {
 
   function getCurrentGoal() {
-    return Profile.i().getGoal()
-      || info.goal
-      || [""]
+
+    const profileGoal = Profile.i().getGoal()
+    if (profileGoal.length > 0)
+      return profileGoal
+
+    if (info.goal.length > 0)
+      return info.goal
+
+    return [""]
   }
 
   const [isEditMode, setEditMode] = React.useState(Profile.i().isEditMode)
@@ -41,9 +47,7 @@ export default function MainInformation({ info }) {
               />
               :
               <p className={styles.goal} alt={goals}>
-                <LocaleText
-                  values={goals}
-                />
+                <LocaleText values={goals} />
               </p>
           }
         </div>

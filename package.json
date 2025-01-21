@@ -51,7 +51,7 @@
     "build-local": "set PUBLIC_URL=/&& react-scripts build",
     "eject": "react-scripts eject",
     "publish": "npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && npm publish --access public",
-    "start": "set PUBLIC_URL=/&& react-scripts start",
+    "start": "set PUBLIC_URL=/&& set SHOW_LOCATION_ALERTS=false&& react-scripts start",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "version": "0.1.2"

@@ -27,8 +27,12 @@ export default class Locale extends Singleton {
     return this.activeLocale
   }
 
+  getOrder() {
+    return this.activeLocale.order
+  }
+
   setActive(locale) {
-    this.activeLocale = locale
+    this.activeLocale = this.locale.find(l => l.key == locale.key) ?? this.activelocale
     for (let onChange of this.onChangeCallbacks) {
       onChange.callback(this.activeLocale)
     }

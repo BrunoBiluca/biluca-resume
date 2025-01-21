@@ -11,10 +11,10 @@ export default class Certificate extends Entry {
 
   constructor(data) {
     super(data)
-    this.title = loc(data["title"])
+    this.title = data["title"]
     this.platform = data["platform"]
     this.emissionDate = data["emission_date"]
-    this.description = loc(data["description"])
+    this.description = data["description"]
     this.url = data["url"]
   }
 
