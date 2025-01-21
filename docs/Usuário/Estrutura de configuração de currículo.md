@@ -194,11 +194,20 @@ A ordem dos idiomas configurados na lista irá influenciar na ordem de cada text
 
 ```json
 {
-  "title": [],
+  "title": locale(),
   "type": "Skill",
+  "categories": [
+	  {
+		  "id": "category_1",
+		  "label": locale()
+	  }
+  ],
   "entries": [
     {
-      "label": "skill"
+	  "id": "",
+	  "category_id": "category_1",
+      "label": locale(),
+      "proficiency": locale()
     }
   ]
 }
