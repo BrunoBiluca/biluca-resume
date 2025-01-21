@@ -3,6 +3,7 @@ import GridColumns, { Main, Side } from "../../components/containers/GridColumns
 import Section from "../../components/section/Section"
 import { cfac } from "../../core/ComponentsFactory"
 import ResumeComponent from "../../core/ResumeComponent"
+import SkillSection from "./components/SkillSection"
 
 export default function OnePagerResume({ resume }) {
   return <Page background={resume.theme.background}>
@@ -13,14 +14,22 @@ export default function OnePagerResume({ resume }) {
         {
           resume.sections
             ?.filter(s => s.theme && s.theme["place"] === "side")
-            .map(sec => new ResumeComponent(sec, <Section key={sec.key()} section={sec} padding={0} />).render())
+            .map(sec => new ResumeComponent(sec,
+              sec["type"] === "Skill" ?
+                <SkillSection key={sec.key()} section={sec} padding={0} />
+                : <Section key={sec.key()} section={sec} padding={0} />
+            ).render())
         }
       </Side>
       <Main key={"main"}>
         {
           resume.sections
             ?.filter(s => !s.theme)
-            .map(sec => new ResumeComponent(sec, <Section key={sec.key()} section={sec} />).render())
+            .map(sec => new ResumeComponent(sec,
+              sec["type"] === "Skill" ?
+                <SkillSection key={sec.key()} section={sec} padding={0} />
+                : <Section key={sec.key()} section={sec} />
+            ).render())
         }
       </Main>
     </GridColumns>

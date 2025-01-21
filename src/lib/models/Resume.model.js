@@ -1,4 +1,5 @@
 import Section from "./Section.model"
+import SkillSection from "./SkillSection.model"
 
 export default class Resume {
   mainInformation
@@ -12,7 +13,10 @@ export default class Resume {
     this.theme = new ResumeTheme(data["theme"])
 
     for (let sectionData of data["sections"]) {
-      this.sections.push(new Section(sectionData))
+      if (sectionData["type"] === "Skill")
+        this.sections.push(new SkillSection(sectionData))
+      else
+        this.sections.push(new Section(sectionData))
     }
   }
 }
