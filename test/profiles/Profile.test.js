@@ -11,16 +11,6 @@ jest.mock("../../src/lib/profiles/ProfileLocalStorage", () => {
   }))
 })
 
-function addCustomizableProfile(profile) {
-  profile.addProfile({
-    id: "novo-perfil",
-    name: "Novo perfil",
-    canEdit: true,
-    hidden_content: [],
-    createdAt: Date.now()
-  })
-}
-
 beforeEach(() => {
   // Clear all instances and calls to constructor and all methods:
   ProfileLocalStorage.mockClear();
@@ -44,11 +34,11 @@ test('deve permitir adicionar um novo perfil e defini-lo como ativo', async () =
   let callback = false
   profile.subscribe(() => callback = true)
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
 
   var activeProfile = profile.getActiveProfile()
 
-  expect(activeProfile.id).toBe("novo-perfil")
+  expect(activeProfile.name).toBe("Novo perfil")
   expect(callback).toBe(true)
   expect(mockUpdateProfile).toHaveBeenCalledTimes(1)
 })
@@ -75,7 +65,7 @@ test('deve permitir entrar em modo de edição quando o perfil ativo pode ser ed
     isEditMode = profile.isEditMode
   })
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
 
   profile.enterEditMode()
 
@@ -88,7 +78,7 @@ test('deve permitir esconder um component do perfil ativo', async () => {
   let callback = false
   profile.subscribe(() => callback = true)
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
 
   profile.enterEditMode()
 
@@ -103,7 +93,7 @@ test('deve permitir esconder um component do perfil ativo', async () => {
 test('deve permitir exibir um component do perfil ativo', async () => {
   var profile = new Profile()
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
   profile.enterEditMode()
 
   let callback = false
@@ -119,7 +109,7 @@ test('deve permitir exibir um component do perfil ativo', async () => {
 test('deve verificar se componente está escondido ou não pela chave', async () => {
   let profile = new Profile()
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
   profile.enterEditMode()
 
   profile.hideComponent("componente-1")
@@ -185,9 +175,9 @@ test("não deve permitir entrar em modo de edição quando o modo está deslabil
 test("deve remover um perfil localmente adicionado", async () => {
   const profile = new Profile()
 
-  addCustomizableProfile(profile)
+  profile.addProfile()
 
-  profile.removeProfile("novo-perfil")
+  profile.removeProfile(profile.getActiveProfile().id)
 
   expect(profile.getProfiles().filter(p => p.id === "novo-perfil")).toHaveLength(0)
   expect(mockRemoveProfile).toHaveBeenCalledTimes(1)
@@ -214,22 +204,14 @@ test("não deve ser possível remover um perfil fixo", async () => {
 test("quando remover o perfil ativo, deve ser alterado o perfil ativo para o anterior", async () => {
   const profile = new Profile()
 
-  profile.addProfile({
-    id: "novo-perfil-1",
-    name: "Novo perfil",
-    createdAt: Date.now()
-  })
-  profile.addProfile({
-    id: "novo-perfil-2",
-    name: "Novo perfil",
-    createdAt: Date.now()
-  })
+  profile.addProfile()
+  profile.addProfile()
 
-  expect(profile.getActiveProfile().id).toBe("novo-perfil-2")
+  expect(profile.getActiveProfile().name).toBe("Novo perfil 2")
 
-  profile.removeProfile("novo-perfil-2")
+  profile.removeProfile(profile.getActiveProfile().id)
 
-  expect(profile.getActiveProfile().id).toBe("novo-perfil-1")
+  expect(profile.getActiveProfile().name).toBe("Novo perfil")
   expect(mockRemoveProfile).toHaveBeenCalledTimes(1)
 })
 

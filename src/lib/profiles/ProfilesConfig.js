@@ -1,5 +1,4 @@
 import React from "react"
-import { v4 as uuidv4 } from 'uuid';
 import styles from './ProfilesConfig.module.css'
 import BasePanel from "../components/base_panel/BasePanel";
 import ProfileButton from "./ProfileButton";
@@ -17,22 +16,7 @@ export default function ProfilesConfig() {
   })
 
   function addProfile() {
-    let newProfileName = "Novo perfil"
-
-    const count = profiles.filter(p => p.name.startsWith("Novo perfil")).length + 1
-    if (count > 1) {
-      newProfileName += " " + count
-    }
-
-    const newProfile = {
-      id: uuidv4(),
-      name: newProfileName,
-      canEdit: true,
-      hidden_content: [],
-      createdAt: Date.now()
-    }
-
-    Profile.i().addProfile(newProfile)
+    Profile.i().addProfile()
   }
 
   return (

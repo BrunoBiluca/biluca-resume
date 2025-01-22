@@ -1,5 +1,6 @@
 import Singleton from "../core/abstract/Singleton";
 import ProfileLocalStorage from "./ProfileLocalStorage";
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Profile extends Singleton {
   onChangeCallbacks = []
@@ -54,19 +55,31 @@ export default class Profile extends Singleton {
     this.setActiveProfile(profile.id)
   }
 
-  addProfile(profile) {
-    this.profiles.push({
+  addProfile() {
+
+    let newProfileName = "Novo perfil"
+
+    const count = this.profiles.filter(p => p.name.startsWith("Novo perfil")).length + 1
+    if (count > 1) {
+      newProfileName += " " + count
+    }
+
+    const newProfile = {
+      id: uuidv4(),
       canRemove: true,
       canEdit: true,
       goal: [],
       hidden_content: [],
       createdAt: Date.now(),
-      ...profile
-    })
+      name: newProfileName,
+      createdAt: Date.now()
+    }
 
-    this.storage.updateProfile(profile)
+    this.profiles.push(newProfile)
 
-    this.setActiveProfile(profile.id)
+    this.storage.updateProfile(newProfile)
+
+    this.setActiveProfile(newProfile.id)
   }
 
   removeProfile(profileId) {

@@ -25,13 +25,10 @@ test('deve esconder o componente no modo de exibição quando estiver escondido 
 
   let model = new Entry({ is_active: true })
 
-  Profile.i().addProfile({
-    id: "novo-perfil",
-    name: "Novo perfil",
-    canEdit: true,
-    hidden_content: [model.key()],
-    createdAt: Date.now()
-  })
+  Profile.i().addProfile()
+  Profile.i().enterEditMode()
+  Profile.i().hideComponent(model.key())
+  Profile.i().exitEditMode()
 
   const component = new ResumeComponent(model, <div>Conteúdo</div>)
   render(component.render())
@@ -40,14 +37,7 @@ test('deve esconder o componente no modo de exibição quando estiver escondido 
 })
 
 test('deve renderizar o component de edição quando está em edit mode', async () => {
-  Profile.i().addProfile({
-    id: "novo-perfil",
-    name: "Novo perfil",
-    canEdit: true,
-    hidden_content: [],
-    createdAt: Date.now()
-  })
-
+  Profile.i().addProfile()
   Profile.i().enterEditMode()
 
   const component = new ResumeComponent(new Entry({}), <div>Conteúdo</div>)

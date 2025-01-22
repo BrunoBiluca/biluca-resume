@@ -14,7 +14,6 @@ jest.mock("../../src/lib/profiles/ProfileLocalStorage", () => {
 })
 
 beforeEach(() => { 
-  
   Profile.setInstance(new Profile()) 
 })
 

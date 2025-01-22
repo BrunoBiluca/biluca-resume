@@ -21,11 +21,8 @@ test("deve exibir as informações provenientes pelo modelo", async () => {
 
 test("deve exibir as informações provenientes do perfil", async () => {
 
-  Profile.i().addProfile({
-    id: "novo-perfil",
-    name: "Novo perfil",
-    goal: ["Objetivo pelo perfil", "Profile goal"],
-  })
+  Profile.i().addProfile()
+  Profile.i().setGoal(0, "Objetivo pelo perfil")
 
   render(<MainInformation
     info={{ name: "Nome", summary: "Sumario", goal: ["Objetivo", "Goal"], picture: "Imagem" }}
