@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
 import { userEvent } from '@testing-library/user-event'
 
@@ -95,4 +95,27 @@ test("não deve exibir os botões de controle quando o modo de edição estiver 
   expect(screen.queryByRole('button', { name: 'Editar' })).not.toBeInTheDocument()
 
   Profile.setInstance(new Profile([]))
+})
+
+test("deve permitir alterar o nome do perfil", async () => {
+  Profile.setInstance(new Profile([]))
+
+  Profile.i().addProfile()
+
+  render(<ProfileButton
+    key="1"
+    name="Novo perfil"
+    isActive={true}
+    canEdit={true}
+    onClick={() => { }}
+  />)
+
+  await userEvent.click(screen.getByRole('button', { name: 'Renomear' }))
+
+  const inputEl = screen.getByRole('input')
+  await userEvent.type(inputEl, ' alterado')
+
+  await userEvent.type(inputEl, "{enter}");
+
+  expect(screen.getByRole('option', { name: 'Novo perfil alterado' })).toBeInTheDocument()
 })

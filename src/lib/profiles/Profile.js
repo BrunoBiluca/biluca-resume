@@ -35,7 +35,7 @@ export default class Profile extends Singleton {
     }
 
     for (const profile of this.storage.getProfiles()) {
-      this.addProfile(profile)
+      this.profiles.push(profile)
     }
 
     this.setActiveProfile("completo")
@@ -156,5 +156,13 @@ export default class Profile extends Singleton {
 
   runCallbacks() {
     this.onChangeCallbacks.forEach(c => c.callback(this.activeProfile))
+  }
+
+  setName(newName){
+    this.activeProfile.name = newName
+
+    if (this.activeProfile.canRemove)
+      this.storage.updateProfile(this.activeProfile)
+    this.runCallbacks()
   }
 }

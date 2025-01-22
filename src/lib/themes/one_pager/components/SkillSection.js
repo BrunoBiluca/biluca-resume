@@ -20,9 +20,6 @@ export default function SkillSection({ section, padding }) {
   }
   categories = categories.filter(c => c.entries.length > 0)
 
-  categories.forEach(c => console.log(c.key()))
-  console.log(categories)
-
   return <section className={styles.section}>
     <h1 className={styles.sectionTitle}>
       <HighlightText text={section.title} />
@@ -32,7 +29,7 @@ export default function SkillSection({ section, padding }) {
         categories.map(cat =>
           new ResumeComponent(
             cat,
-            <React.Fragment key={cat.key()}>
+            <div key={cat.key()}>
               <h5 style={{ "border": 0, "margin": ".2em 0" }}>
                 {loc(cat.category)}
               </h5>
@@ -43,7 +40,7 @@ export default function SkillSection({ section, padding }) {
                   )
                 }
               </div>
-            </React.Fragment>
+            </div>
           ).render()
         )
       }

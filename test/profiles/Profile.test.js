@@ -12,8 +12,12 @@ jest.mock("../../src/lib/profiles/ProfileLocalStorage", () => {
 })
 
 beforeEach(() => {
-  // Clear all instances and calls to constructor and all methods:
-  ProfileLocalStorage.mockClear();
+  ProfileLocalStorage.mockImplementation(() => ({
+    updateProfile: mockUpdateProfile,
+    removeProfileRegistry: mockRemoveProfile,
+    getProfiles: jest.fn(() => [])
+  }))
+
   mockUpdateProfile.mockClear();
   mockRemoveProfile.mockClear();
 });
@@ -258,11 +262,7 @@ test("deve carregar o objetivo do perfil com o armazenado", async () => {
 test("deve atualizar uma informações de objetivo de perfil", async () => {
   const profile = new Profile()
 
-  profile.addProfile({
-    id: "novo-perfil-1",
-    name: "Novo perfil",
-    createdAt: Date.now()
-  })
+  profile.addProfile()
 
   profile.setGoal(2, "Objetivo na língua 3")
   profile.setGoal(0, "Objetivo na língua 1")
@@ -273,4 +273,14 @@ test("deve atualizar uma informações de objetivo de perfil", async () => {
     "Objetivo na língua 2",
     "Objetivo na língua 3"
   ])
+})
+
+test("deve permitir alterar o nome do perfil", async () => {
+  const profile = new Profile()
+
+  profile.addProfile()
+  profile.setName("Novo nome")
+
+  expect(profile.getActiveProfile().name).toBe("Novo nome")
+  expect(mockUpdateProfile).toHaveBeenCalledTimes(2)
 })
