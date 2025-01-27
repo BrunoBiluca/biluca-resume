@@ -68,6 +68,13 @@ export default function ProfileButton({ name, isActive, canEdit, onClick, onSave
           Salvar
         </button>
 
+        <button
+          style={{ backgroundColor: "darkgoldenrod" }}
+          onClick={() => Profile.i().duplicateActive()}
+        >
+          Duplicar
+        </button>
+
         {
           Profile.i().getActiveProfile().canRemove &&
           <button

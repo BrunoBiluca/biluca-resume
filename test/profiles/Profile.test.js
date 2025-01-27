@@ -284,3 +284,24 @@ test("deve permitir alterar o nome do perfil", async () => {
   expect(profile.getActiveProfile().name).toBe("Novo nome")
   expect(mockUpdateProfile).toHaveBeenCalledTimes(2)
 })
+
+test("deve permitir duplicar um perfil", async () => {
+  const profile = new Profile()
+
+  profile.addProfile()
+  profile.enterEditMode()
+  profile.hideComponent("component-1")
+  profile.setGoal(0, "Novo objetivo")
+  profile.exitEditMode()
+
+  profile.duplicateActive()
+
+  expect(profile.getProfiles()).toHaveLength(3)
+  expect(profile.getProfiles().find(p => p.name === "Novo perfil")).toBeDefined()
+  
+  expect(profile.getActiveProfile().name).toBe("Novo perfil - cópia")
+  expect(profile.getActiveProfile().goal).toStrictEqual(["Novo objetivo"])
+  expect(profile.getActiveProfile().hidden_content).toStrictEqual(["component-1"])
+
+  expect(mockUpdateProfile).toHaveBeenCalledTimes(4)
+})

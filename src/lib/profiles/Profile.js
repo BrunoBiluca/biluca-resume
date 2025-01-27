@@ -70,7 +70,6 @@ export default class Profile extends Singleton {
       canEdit: true,
       goal: [],
       hidden_content: [],
-      createdAt: Date.now(),
       name: newProfileName,
       createdAt: Date.now()
     }
@@ -158,11 +157,32 @@ export default class Profile extends Singleton {
     this.onChangeCallbacks.forEach(c => c.callback(this.activeProfile))
   }
 
-  setName(newName){
+  setName(newName) {
     this.activeProfile.name = newName
 
     if (this.activeProfile.canRemove)
       this.storage.updateProfile(this.activeProfile)
     this.runCallbacks()
+  }
+
+  duplicateActive() {
+
+    let activeProfile = this.getActiveProfile()
+
+    const copiedProfile = {
+      id: uuidv4(),
+      canRemove: true,
+      canEdit: true,
+      goal: activeProfile.goal,
+      hidden_content: activeProfile.hidden_content,
+      name: activeProfile.name + " - cópia",
+      createdAt: Date.now(),
+    }
+
+    this.profiles.push(copiedProfile)
+
+    this.storage.updateProfile(copiedProfile)
+
+    this.setActiveProfile(copiedProfile.id)
   }
 }
