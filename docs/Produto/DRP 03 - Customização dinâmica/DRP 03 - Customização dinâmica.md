@@ -289,6 +289,13 @@ Nomenclatura de perfil em arquivo:
 
 Onde `XXX` é o valor correspondente ao nome do perfil. Isso impede ter termos conflitos entre os perfis publicados.
 
+
+#### Entrada com a chave do autor
+
+Conforme o requisito [[#⬛ RF 03.03.01 - Autor pode entrar em modo de edição mesmo em publicação]] o autor pode entrar com uma chave para poder fazer a edição mesmo quando o modo de edição está desabilitado.
+
+Para isso o autor deve clicar entrar com o texto "chave" no campo exibido ao clicar no título 'Perfis'.'
+
 ## Requisitos técnicos
 
 - Criar identificadores para os conteúdos que são editáveis

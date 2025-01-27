@@ -3,10 +3,13 @@ import ProfileLocalStorage from "../../src/lib/profiles/ProfileLocalStorage"
 
 const mockRemoveProfile = jest.fn();
 const mockUpdateProfile = jest.fn();
+const mockRegisterAuthorKey = jest.fn();
 jest.mock("../../src/lib/profiles/ProfileLocalStorage", () => {
   return jest.fn().mockImplementation(() => ({
     updateProfile: mockUpdateProfile,
     removeProfileRegistry: mockRemoveProfile,
+    registerAuthorKey: mockRegisterAuthorKey,
+    getAuthorKey: jest.fn(() => undefined),
     getProfiles: jest.fn(() => [])
   }))
 })
@@ -15,11 +18,14 @@ beforeEach(() => {
   ProfileLocalStorage.mockImplementation(() => ({
     updateProfile: mockUpdateProfile,
     removeProfileRegistry: mockRemoveProfile,
+    registerAuthorKey: mockRegisterAuthorKey,
+    getAuthorKey: jest.fn(() => undefined),
     getProfiles: jest.fn(() => [])
   }))
 
   mockUpdateProfile.mockClear();
   mockRemoveProfile.mockClear();
+  mockRegisterAuthorKey.mockClear();
 });
 
 test('deve iniciar com o perfil completo', async () => {
@@ -222,6 +228,7 @@ test("quando remover o perfil ativo, deve ser alterado o perfil ativo para o ant
 test("deve carregar os perfis quando armazenados inicialmente", async () => {
   ProfileLocalStorage.mockImplementation(() => ({
     updateProfile: jest.fn(),
+    getAuthorKey: jest.fn(() => "chave"),
     getProfiles: jest.fn().mockReturnValue([
       { id: 'perfil-local-1', name: 'Perfil local 1', hidden_content: ["componente-1"], createdAt: Date.now() },
     ])
@@ -298,10 +305,57 @@ test("deve permitir duplicar um perfil", async () => {
 
   expect(profile.getProfiles()).toHaveLength(3)
   expect(profile.getProfiles().find(p => p.name === "Novo perfil")).toBeDefined()
-  
+
   expect(profile.getActiveProfile().name).toBe("Novo perfil - cópia")
   expect(profile.getActiveProfile().goal).toStrictEqual(["Novo objetivo"])
   expect(profile.getActiveProfile().hidden_content).toStrictEqual(["component-1"])
 
   expect(mockUpdateProfile).toHaveBeenCalledTimes(4)
+})
+
+test("quando chave não foi cadastrada não deve permitir entrar em modo de edição", async () => {
+  const profile = new Profile([], true)
+
+  expect(profile.isEditModeDisabled).toBe(true)
+
+  profile.enterAuthorKey("chave")
+
+  expect(profile.isEditModeDisabled).toBe(true)
+  expect(mockRegisterAuthorKey).toHaveBeenCalledTimes(0)
+})
+
+test("quando chave foi cadastrada não deve permitir entrar em modo de edição com chave inválida", async () => {
+  const profile = new Profile([], true, "chave")
+
+  expect(profile.isEditModeDisabled).toBe(true)
+
+  profile.enterAuthorKey("chave-invalida")
+
+  expect(profile.isEditModeDisabled).toBe(true)
+  expect(mockRegisterAuthorKey).toHaveBeenCalledTimes(0)
+})
+
+test("quando chave foi cadastrada deve permitir entrar em modo de edição com chave válida", async () => {
+  const profile = new Profile([], true, "chave")
+
+  expect(profile.isEditModeDisabled).toBe(true)
+
+  profile.enterAuthorKey("chave")
+
+  expect(profile.isEditModeDisabled).toBe(false)
+  expect(mockRegisterAuthorKey).toHaveBeenCalledTimes(1)
+})
+
+test("quando chave correta registrada deve iniciar com modo de edição habilitado", async () => {
+  ProfileLocalStorage.mockImplementation(() => ({
+    updateProfile: mockUpdateProfile,
+    removeProfileRegistry: mockRemoveProfile,
+    registerAuthorKey: mockRegisterAuthorKey,
+    getAuthorKey: jest.fn(() => "chave"),
+    getProfiles: jest.fn(() => [])
+  }))
+
+  const profile = new Profile([], true, "chave")
+
+  expect(profile.isEditModeDisabled).toBe(false)
 })

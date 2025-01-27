@@ -2,6 +2,14 @@ export default class ProfileLocalStorage {
   constructor() {
   }
 
+  registerAuthorKey(authorKey) {
+    localStorage.setItem("authorKey", authorKey)
+  }
+
+  getAuthorKey() {
+    return localStorage.getItem("authorKey")
+  }
+
   updateProfile(profile) {
     this.addProfileRegistry(profile.id)
     localStorage.setItem("profile." + profile.id, JSON.stringify(profile))

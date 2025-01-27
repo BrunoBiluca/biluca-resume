@@ -9,6 +9,7 @@ import ProfileSave from "./ProfileSave";
 export default function ProfilesConfig() {
   const [profiles, setProfiles] = React.useState(Profile.i().getProfiles())
   const [selectedProfile, setSelectedProfile] = React.useState("completo")
+  const [showAuthorKeyInput, setShowAuthorKeyInput] = React.useState(false)
 
   Profile.i().subscribe(() => {
     setSelectedProfile(Profile.i().getActiveProfile().id)
@@ -20,7 +21,21 @@ export default function ProfilesConfig() {
   }
 
   return (
-    <BasePanel title="Perfis">
+    <BasePanel title="Perfis" onTitleClick={() => setShowAuthorKeyInput(true)}>
+      {
+        showAuthorKeyInput &&
+        <div>
+          <input
+            type="text"
+            onKeyDown={(event) => {
+              if (event.key == "Enter") {
+                setShowAuthorKeyInput(false)
+                Profile.i().enterAuthorKey(event.target.value)
+              }
+            }}
+          />
+        </div>
+      }
       {
         !Profile.i().isEditModeDisabled &&
         <>

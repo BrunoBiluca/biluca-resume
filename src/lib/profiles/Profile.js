@@ -12,12 +12,20 @@ export default class Profile extends Singleton {
   constructor(
     externalProfiles = [],
     isEditModeDisabled = false,
+    authorKey = undefined,
   ) {
     super()
 
     this.storage = new ProfileLocalStorage()
 
-    this.isEditModeDisabled = isEditModeDisabled
+    this.authorKey = authorKey
+
+    if (authorKey !== undefined && this.storage.getAuthorKey() === authorKey) {
+      this.isEditModeDisabled = false
+    }
+    else {
+      this.isEditModeDisabled = isEditModeDisabled
+    }
 
     this.addFixedProfile(
       {
@@ -184,5 +192,12 @@ export default class Profile extends Singleton {
     this.storage.updateProfile(copiedProfile)
 
     this.setActiveProfile(copiedProfile.id)
+  }
+
+  enterAuthorKey(authorKey) {
+    if (authorKey !== this.authorKey) return
+
+    this.storage.registerAuthorKey(authorKey)
+    this.isEditModeDisabled = false
   }
 }
