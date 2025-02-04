@@ -52,7 +52,7 @@ Isso cria um barreira na criação de currículos o que vai contra o propósito 
 
 # Requisitos
 
-### ⬛ RF 03.01 - Adição de perfis
+### ✅ RF 03.01 - Adição de perfis
 
 __Descrição__
 
@@ -76,7 +76,7 @@ __Critérios de aceite__
 
 - Quando o perfil completo é atualizado, as novas informações devem aparecer como escondidas em perfil já adicionado
 
-### ⬛ RF 03.01.01 - Renomear perfil 
+### ✅ RF 03.01.01 - Renomear perfil 
 
 __Descrição__
 
@@ -91,7 +91,7 @@ __Critérios de aceite__
 - Quando um perfil tem seu nome alterado deve registrar essa informação para futuros carregamentos
 
 
-### ⬛ RF 03.02 - Remoção de perfis locais
+### ✅ RF 03.02 - Remoção de perfis locais
 
 __Descrição__
 
@@ -107,7 +107,7 @@ __Critérios de aceite__
 	- Este perfil não deve ser mais exibido na lista
 	- Nenhuma informação desse perfil deve ser mantida
 
-### ⬛ RF 03.03 - Permitir modo de edição de currículo
+### ✅ RF 03.03 - Permitir modo de edição de currículo
 
 __Descrição__
 
@@ -123,7 +123,7 @@ __Critérios de aceite__
 	- Não são apresentados os botões de Adicionar perfil e de Salvar a edição
 	- Não são apresentados os ícones de Editar ou Remover perfil
 
-### ⬛ RF 03.03.01 - Autor pode entrar em modo de edição mesmo em publicação
+### ✅ RF 03.03.01 - Autor pode entrar em modo de edição mesmo em publicação
 
 __Descrição__
 
@@ -171,7 +171,7 @@ __Critérios de aceite__
 	- O indicativo de informação escondida é removida
 	- O botão de esconder é exibido
 
-### ⬛ RF 03.05 - Salvar/Carregar configuração de perfil estaticamente
+### ✅ RF 03.05 - Salvar/Carregar configuração de perfil estaticamente
 
 __Descrição__
 
@@ -188,7 +188,7 @@ __Critérios de aceite__
 - Quando existe um arquivo de perfil publicado este deve ser exibido na lista de perfis
 - Deve ser possível fazer alterações locais nos perfis criados a partir de configurações em arquivos
 
-### ⬛ RF 03.06 - Exibição de um perfil
+### ✅ RF 03.06 - Exibição de um perfil
 
 __Descrição__
 
@@ -202,7 +202,7 @@ __Critérios de aceite__
 
 - Quando selecionar um perfil a ser exibido a tela deve ser alterada para o perfil selecionado
 
-### ⬛ RF 03.07 - Duplicação de perfil
+### ✅ RF 03.07 - Duplicação de perfil
 
 __Descrição__
 
@@ -217,7 +217,7 @@ __Critérios de aceite__
 - Quando seleciono um perfil na lista de exibição deve ser possível ter uma forma de duplicar
 - Quando um perfil é duplicado ele aparece com o nome do perfil original com o sufixo "- cópia"
 
-### ⬛ RF 03.08 - Objetivo do currículo
+### ✅ RF 03.08 - Objetivo do currículo
 
 __Descrição__
 
@@ -233,6 +233,26 @@ __Critérios de aceite__
 - O objetivo do currículo deve permitir localização conforme a línguas configuradas no currículo
 - Quando o perfil estiver em edição deve aparecer um botão de editar o objetivo do currículo
 - Quando o botão de editar o objetivo do perfil for acionado deve permitir entrar com um novo texto
+
+
+### ⬛ RF 03.09 - Simplificação de experiências de trabalho
+
+__Descrição__
+
+Como autor quero definir algumas experiências de trabalho para serem exibidas de forma simplificada apenas como referência para o avaliador de currículo.
+
+__Impacto__
+
+Habilitando algumas experiências de forma simplificada evita que o avaliador do currículo fique com dúvidas relacionadas a períodos de tempo em relação as experiências que não estão no currículo.
+
+__Critérios de aceite__
+
+- Quando estiver em modo de edição
+	- Se o componente estiver sendo exibido ele pode tem seu estado alterado para versão simplificada
+	- Se o componente estiver em versão simplificada ele pode ter ser alterado para a versão completa
+
+- Em modo de exibição
+	- Quando o componente estiver marcado como versão simplificada ele deve ser exibido no formato simplificado de acordo com o modelo
 
 # Especificação de arquitetura
 

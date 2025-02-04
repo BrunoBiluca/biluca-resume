@@ -8,12 +8,13 @@
 
 # ⬛ Requisitos abertos
 
-- 
+- [[DRP 05 - Modelo 2]]
 - 
 
 # ☑️ Requisitos parcialmente concluídos
 
 - [[DRP 03 - Customização dinâmica]]
+- 
 
 
 #  ✅ Requisitos concluídos
