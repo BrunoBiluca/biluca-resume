@@ -1,0 +1,31 @@
+.header {
+  height: 5cm;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1em;
+}
+
+.picture {
+  height: inherit;
+}
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+p.goal {
+  border-bottom: 1px solid gray;
+  margin: 0.4em 0;
+  margin-bottom: 1em;
+  color: var(--font-second-color);
+}
+
+p.summary {
+  font-style: italic;
+  font-size: calc(var(--font-size-text) + 2px);
+  line-height: 1.4;
+  color: var(--font-main-color);
+}

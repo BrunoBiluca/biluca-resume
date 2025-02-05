@@ -1,4 +1,5 @@
 import Factory from "./core/abstract/Factory";
+import Model2Initializer from "./themes/model2/Model2Initializer";
 import OnePagerInitilizer from "./themes/one_pager/OnePagerInitilizer";
 
 export default class ThemesFactory {
@@ -26,6 +27,7 @@ export default class ThemesFactory {
 
   _create(mapper) {
     mapper["OnePager"] = (d) => new OnePagerInitilizer(d)
+    mapper["model2"] = (d) => new Model2Initializer(d)
   }
 
 }
