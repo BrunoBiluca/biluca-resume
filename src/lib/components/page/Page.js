@@ -7,7 +7,7 @@ export default function Page({ background, children }) {
         background &&
         <img src={background} className={styles.background} alt="page background" />
       }
-      <div className={styles.content}>
+      <div className={styles.content} style={{ height: "100%" }}>
         {children}
       </div>
     </div>

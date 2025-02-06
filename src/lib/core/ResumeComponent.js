@@ -1,6 +1,12 @@
 import EditController from "../profiles/edit_controller/EditController"
 import Profile from "../profiles/Profile"
 
+
+export function rc(model, component) {
+  return new ResumeComponent(model, component)
+}
+
+
 export default class ResumeComponent {
   constructor(model, component) {
     this.model = model

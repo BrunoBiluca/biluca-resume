@@ -1,4 +1,3 @@
-import OnePagerResume from "./OnePagerResume"
 import MainInformation from "../../components/main_information/MainInformation"
 import WorkExperience from "./components/WorkExperience"
 import Education from "./components/Education"

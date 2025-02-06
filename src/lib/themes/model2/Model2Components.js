@@ -1,5 +1,13 @@
 import ComponentsFactory from "../../core/ComponentsFactory";
 import MainInformation from "./components/MainInformation";
+import ContactInformation from "../../components/contact_information/ContactInformation";
+import { Mail } from "../../components/contact_information/Mail"
+import { Phone } from "../../components/contact_information/Phone"
+import { Location } from "../../components/contact_information/Location"
+import { Github } from "../../components/contact_information/Github"
+import { LinkedIn } from "../../components/contact_information/LinkedIn"
+import { Website } from "../../components/contact_information/Website"
+
 
 import {
   Certificate as CertificateModel,
@@ -25,8 +33,8 @@ export default class Model2Components extends ComponentsFactory {
   _create(resumeConfig) {
     resumeConfig["MainInformation"]
       = this._map(MainInformation, MainInformationModel, (m) => ({ info: m }))
-    // resumeConfig["ContactInformation"]
-    //   = this._map(ContactInformation, ContactInfo, (m) => ({ contactInfo: m }))
+    resumeConfig["ContactInformation"]
+      = this._map(ContactInformation, ContactInfo, (m) => ({ contactInfo: m }))
     // resumeConfig["WorkExperience"]
     //   = this._map(WorkExperience, WorkExperienceModel, (m) => ({ workExperience: m }))
     // resumeConfig["Skill"]
@@ -39,18 +47,18 @@ export default class Model2Components extends ComponentsFactory {
     //   = this._map(Language, LanguageModel, (m) => ({ language: m }))
     // resumeConfig["Game"]
     //   = this._map(Game, GameModel, (m) => ({ game: m }))
-    // resumeConfig["Mail"]
-    //   = this._map(Mail, MailModel, (m) => ({ email: m.email, label: m.email }))
-    // resumeConfig["Phone"]
-    //   = this._map(Phone, PhoneModel, (m) => ({ number: m.number }))
-    // resumeConfig["Location"]
-    //   = this._map(Location, LocationModel, (m) => ({ place: m.place, url: m.googleMaps }))
-    // resumeConfig["Github"]
-    //   = this._map(Github, GithubModel, (m) => ({ github: m.profile }))
-    // resumeConfig["LinkedIn"]
-    //   = this._map(LinkedIn, LinkedInModel, (m) => ({ profile: m.profile }))
-    // resumeConfig["Website"]
-    //   = this._map(Website, WebsiteModel, (m) => ({ url: m.url }))
+    resumeConfig["Mail"]
+      = this._map(Mail, MailModel, (m) => ({ email: m.email, label: m.email }))
+    resumeConfig["Phone"]
+      = this._map(Phone, PhoneModel, (m) => ({ number: m.number }))
+    resumeConfig["Location"]
+      = this._map(Location, LocationModel, (m) => ({ place: m.place, url: m.googleMaps }))
+    resumeConfig["Github"]
+      = this._map(Github, GithubModel, (m) => ({ github: m.profile }))
+    resumeConfig["LinkedIn"]
+      = this._map(LinkedIn, LinkedInModel, (m) => ({ profile: m.profile }))
+    resumeConfig["Website"]
+      = this._map(Website, WebsiteModel, (m) => ({ url: m.url }))
   }
 
   _map(comp, model, mapProps) {
