@@ -26,6 +26,7 @@ import {
   WorkExperience as WorkExperienceModel
 } from "../../models"
 import ResumeComponent from "../../core/ResumeComponent";
+import Language from "../one_pager/components/Language";
 
 
 export default class Model2Components extends ComponentsFactory {
@@ -35,18 +36,8 @@ export default class Model2Components extends ComponentsFactory {
       = this._map(MainInformation, MainInformationModel, (m) => ({ info: m }))
     resumeConfig["ContactInformation"]
       = this._map(ContactInformation, ContactInfo, (m) => ({ contactInfo: m }))
-    // resumeConfig["WorkExperience"]
-    //   = this._map(WorkExperience, WorkExperienceModel, (m) => ({ workExperience: m }))
-    // resumeConfig["Skill"]
-    //   = this._map(Tag, SkillModel, (m) => ({ label: m.label }))
-    // resumeConfig["Certificate"]
-    //   = this._map(Certificate, CertificateModel, (m) => ({ certificate: m }))
-    // resumeConfig["Education"]
-    //   = this._map(Education, EducationModel, (m) => ({ education: m }))
-    // resumeConfig["Language"]
-    //   = this._map(Language, LanguageModel, (m) => ({ language: m }))
-    // resumeConfig["Game"]
-    //   = this._map(Game, GameModel, (m) => ({ game: m }))
+    resumeConfig["Language"]
+      = this._map(Language, LanguageModel, (m) => ({ language: m }))
     resumeConfig["Mail"]
       = this._map(Mail, MailModel, (m) => ({ email: m.email, label: m.email }))
     resumeConfig["Phone"]

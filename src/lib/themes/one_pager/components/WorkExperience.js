@@ -6,7 +6,7 @@ export default function WorkExperience({ workExperience }) {
     <SimpleEntry
       title={
         <>
-          {workExperience.title}
+          {loc(workExperience.title)}
           {
             workExperience.hasCompany()
             &&
@@ -17,7 +17,7 @@ export default function WorkExperience({ workExperience }) {
           }
         </>
       }
-      description={workExperience.description}
+      description={loc(workExperience.description)}
       sideTexts={[
         workExperience.period(),
         workExperience.companyLocation

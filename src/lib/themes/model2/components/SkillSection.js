@@ -53,6 +53,7 @@ export default function SkillSection({ section }) {
                     key={e.key()}
                     style={{
                       listStyle: "inside",
+                      lineHeight: 1.1,
                       fontSize: "var(--font-size-text)"
                     }}
                   >

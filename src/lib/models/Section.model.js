@@ -6,7 +6,7 @@ export default class Section extends Entry {
 
   constructor(data) {
     super(data)
-    this.title = loc(data["title"])
+    this.title = data["title"]
     this.entries = data["entries"]
   }
 

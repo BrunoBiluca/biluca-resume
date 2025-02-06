@@ -27,7 +27,6 @@ export default function MainInformation({ info }) {
   return (
     <div
       style={{
-        height: "5cm",
         display: "grid",
         gridTemplateColumns: "3fr 1fr",
         gap: "1em"

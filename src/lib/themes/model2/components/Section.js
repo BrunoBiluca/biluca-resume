@@ -1,21 +1,21 @@
-import { cfac } from "../../../core/ComponentsFactory";
+import { loc } from "../../../locale/LocaleText";
 
-export default function Section({ section }) {
+export default function Section({ title, style, children }) {
   return <section
-    style={{ padding: "1em" }}
+    style={{ padding: "1em", ...style}}
   >
     <h2
       style={{
         color: "var(--font-highlight-color)",
       }}
     >
-      {section.title}
+      {loc(title)}
     </h2>
     <hr
       style={{
         border: "1px solid #0003"
       }}
     />
-    {cfac().render(section)}
+    {children}
   </section>
 }
