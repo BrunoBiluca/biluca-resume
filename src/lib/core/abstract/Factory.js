@@ -33,7 +33,7 @@ export default class Factory {
     try {
       return this.mapper[type](data)
     } catch (error) {
-      console.log(type)
+      console.error("ERROR: type <" + type + "> is not defined in Factory mapper")
       throw error
     }
   }

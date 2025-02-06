@@ -1,10 +1,13 @@
 import Page from "../../components/page/Page";
 import { cfac } from "../../core/ComponentsFactory";
 import { rc } from "../../core/ResumeComponent";
-import { loc } from "../../locale/LocaleText";
-import { Section } from "../../models";
+import { Section as SectionModel } from "../../models";
+import Section from "./components/Section";
+import SkillSection from "./components/SkillSection";
 
 export default function Model2Resume({ resume }) {
+  let contactInfo = new SectionModel(resume.contactInfo)
+  let skillSection = resume.sections.find(s => s.type == "Skill")
   return <Page>
     <div style={{
       display: "grid",
@@ -17,31 +20,21 @@ export default function Model2Resume({ resume }) {
       </div>
       <div
         style={{
-          backgroundColor: "#b7610733",
+          backgroundColor: "#b761071a",
           height: "100%"
         }}
       >
         {
           rc(
-            new Section(resume.contactInfo),
-            <section
-              style={{ padding: "1em" }}
-            >
-              <h2
-                style={{
-                  color: "var(--font-highlight-color)",
-                }}
-              >
-                {loc(["CONTATO", "CONTACT"])}
-              </h2>
-              <hr
-                style={{
-                  border: "1px solid #0003"
-                }}
-              />
-              {cfac().render(resume.contactInfo)}
-            </section>
-          ).render()
+            contactInfo,
+            <Section key={contactInfo.key()} section={contactInfo} />
+          )
+        }
+        {
+          rc(
+            skillSection,
+            <SkillSection key={skillSection.key()} section={skillSection} />
+          )
         }
       </div>
     </div>

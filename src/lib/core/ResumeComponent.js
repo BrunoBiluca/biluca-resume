@@ -3,7 +3,7 @@ import Profile from "../profiles/Profile"
 
 
 export function rc(model, component) {
-  return new ResumeComponent(model, component)
+  return new ResumeComponent(model, component).render()
 }
 
 

@@ -13,6 +13,7 @@ export default class Model2Initializer extends ThemeInitializer {
   variables() {
     let baseCss = new Variables(this.data["theme"]["variables"]).css()
 
+    baseCss["--font-main-family"] = "'Open Sans', sans-serif"
     baseCss["--font-main-color"] = "#999"
     baseCss["--font-highlight-color"] = "#b76107"
 

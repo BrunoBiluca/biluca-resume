@@ -14,9 +14,6 @@ export function ResumeCanvas({ theme }) {
   });
 
   return <div>
-    <NoPrint>
-      <h1 name={resumeVersion}>{title} {isEditMode && "(Editando)"}</h1>
-    </NoPrint>
     {theme.render()}
   </div>;
 }
