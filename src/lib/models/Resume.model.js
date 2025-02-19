@@ -1,5 +1,6 @@
-import Section from "./Section.model"
-import SkillSection from "./SkillSection.model"
+import ResumeTheme from "./ResumeTheme"
+import Section from "./sections/Section.model"
+import SkillSection from "./sections/SkillSection.model"
 
 export default class Resume {
   mainInformation
@@ -10,7 +11,9 @@ export default class Resume {
     this.type = "Resume"
     this.mainInformation = data["main_information"]
     this.contactInfo = data["contact_information"]
-    this.theme = new ResumeTheme(data["theme"])
+
+    if (data["theme"])
+      this.theme = new ResumeTheme(data["theme"])
 
     for (let sectionData of data["sections"]) {
       if (sectionData["type"] === "Skill")
@@ -21,8 +24,3 @@ export default class Resume {
   }
 }
 
-class ResumeTheme {
-  constructor(theme) {
-    this.background = theme["background"]
-  }
-}

@@ -1,27 +1,28 @@
-import Certificate from "./models/Certificate.model"
-import ContactInfo from "./models/ContactInfo.model"
-import Education from "./models/Education.model"
-import Entry from "./models/Entry.model"
-import Game from "./models/Game.model"
-import Github from "./models/Github.model"
-import Language from "./models/Language.model"
-import LinkedIn from "./models/LinkedIn.model"
-import Location from "./models/Location.model"
-import Mail from "./models/Mail.model"
-import MainInformation from "./models/MainInformation.model"
-import Phone from "./models/Phone.model"
 import Resume from "./models/Resume.model"
-import Section from "./models/Section.model"
-import Skill from "./models/Skill.model"
-import Website from "./models/Website.model"
-import WorkExperience from "./models/WorkExperience.model"
+
+import ContactInfo from "./models/contact_info/ContactInfo.model"
+import Github from "./models/contact_info/Github.model"
+import LinkedIn from "./models/contact_info/LinkedIn.model"
+import Location from "./models/contact_info/Location.model"
+import Mail from "./models/contact_info/Mail.model"
+import Website from "./models/contact_info/Website.model"
+import Phone from "./models/contact_info/Phone.model"
+
+import MainInformation from "./models/MainInformation.model"
+import Section from "./models/sections/Section.model"
+
+import Certificate from "./models/section_items/Certificate.model"
+import Education from "./models/section_items/Education.model"
+import Game from "./models/section_items/Game.model"
+import Language from "./models/section_items/Language.model"
+import Skill from "./models/section_items/Skill.model"
+import WorkExperience from "./models/section_items/WorkExperience.model"
 
 
 export {
   Certificate,
   ContactInfo,
   Education,
-  Entry,
   Game,
   Github,
   Language,

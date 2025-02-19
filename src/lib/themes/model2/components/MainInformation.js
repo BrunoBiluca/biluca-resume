@@ -1,7 +1,8 @@
 import React from "react"
 import Profile from "../../../profiles/Profile"
 import styles from "./MainInformation.module.css"
-import LocaleText, { LocaleInput } from "../../../locale/LocaleText"
+import LocaleText from "../../../locale/LocaleText"
+import { LocaleInput } from "../../../locale/LocaleInput"
 
 export default function MainInformation({ info }) {
 

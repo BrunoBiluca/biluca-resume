@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Locale from "./Locale"
 import { isNullOrEmpty } from "../helpers/StringExtensions"
 import HTMLReactParser from "html-react-parser"
+import { alertNotLocatedText } from "./LocaleWarnings"
 
 export function loc(text) {
   let values = []
@@ -33,40 +34,4 @@ export default function LocaleText({ values }) {
   return <>{HTMLReactParser(text)}</>
 }
 
-function alertNotLocatedText(values) {
-  if (process.env.SHOW_LOCATION_ALERTS != "true") return
 
-  if (!isNullOrEmpty(values[0])) {
-    let order = 0
-    for (let locale of Locale.i().available()) {
-      if (order++ >= values.length && isNullOrEmpty(values[order])) {
-        console.info(
-          `[Locale Warning] Texto '${values[0]}' não está localizada para ${locale.label}`
-        )
-      }
-    }
-  }
-}
-
-export function LocaleInput({ values, onChange }) {
-  const [text, setText] = useState(values[Locale.i().getOrder()])
-  Locale.i().subscribe(updateText)
-
-  function updateText(active) {
-    let order = active.order < values.length ? active.order : 0;
-    setText(values[order])
-  }
-
-  useEffect(() => {
-    alertNotLocatedText(values)
-    setText(values[Locale.i().getOrder()])
-  }, [values])
-
-  return <input
-    value={text}
-    onChange={e => {
-      setText(e.target.value)
-      onChange({ order: Locale.i().getOrder(), value: e.target.value })
-    }}
-  />
-}

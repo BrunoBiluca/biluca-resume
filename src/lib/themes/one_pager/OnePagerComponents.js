@@ -26,7 +26,6 @@ import {
   Mail as MailModel,
   MainInformation as MainInformationModel,
   Phone as PhoneModel,
-  Resume,
   Skill as SkillModel,
   Website as WebsiteModel,
   WorkExperience as WorkExperienceModel

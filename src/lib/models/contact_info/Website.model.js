@@ -1,4 +1,4 @@
-import Entry from "./Entry.model";
+import Entry from "../abstract/Entry.model"
 
 export default class Website extends Entry {
   constructor(data) {

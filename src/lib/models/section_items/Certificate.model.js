@@ -1,6 +1,5 @@
-import { isNullOrEmpty } from "../helpers/StringExtensions"
-import { loc } from "../locale/LocaleText"
-import Entry from "./Entry.model"
+import { isNullOrEmpty } from "../../helpers/StringExtensions"
+import Entry from "../abstract/Entry.model"
 
 export default class Certificate extends Entry {
   title

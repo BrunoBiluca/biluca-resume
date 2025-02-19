@@ -1,4 +1,4 @@
-import Entry from "./Entry.model"
+import Entry from "../abstract/Entry.model"
 
 export default class Education extends Entry {
   constructor(data) {

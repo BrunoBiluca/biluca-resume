@@ -1,4 +1,4 @@
-import Entry from "./Entry.model";
+import Entry from "../abstract/Entry.model"
 
 export default class LinkedIn extends Entry {
   constructor(data) {

@@ -1,5 +1,5 @@
 import { loc } from "../locale/LocaleText"
-import Entry from "./Entry.model"
+import Entry from "./abstract/Entry.model"
 
 export default class MainInformation extends Entry {
   name

@@ -2,10 +2,9 @@ import styles from "../../../components/section/Section.module.css"
 import React from "react";
 import Tag from "../../../components/tag/Tag";
 import HighlightText from "../../../components/highlight_text/HighlightText";
-import Skill from "../../../models/Skill.model";
+import {Skill} from "../../../models";
 import { loc } from "../../../locale/LocaleText";
 import ResumeComponent from "../../../core/ResumeComponent";
-import Profile from "../../../profiles/Profile";
 
 export default function SkillSection({ section, padding }) {
   let categories = []

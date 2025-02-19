@@ -1,5 +1,5 @@
-import { isNullOrEmpty } from "../helpers/StringExtensions"
-import Entry from "./Entry.model"
+import { isNullOrEmpty } from "../../helpers/StringExtensions"
+import Entry from "../abstract/Entry.model"
 
 export default class WorkExperience extends Entry {
 
