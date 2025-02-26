@@ -28,9 +28,11 @@ import {
   Phone as PhoneModel,
   Skill as SkillModel,
   Website as WebsiteModel,
-  WorkExperience as WorkExperienceModel
+  WorkExperience as WorkExperienceModel,
+  Project as ProjectModel
 } from "../../models"
 import Tag from "../../components/tag/Tag"
+import Project from "./components/Project"
 
 export default class OnePagerComponents extends ComponentsFactory {
 
@@ -63,6 +65,8 @@ export default class OnePagerComponents extends ComponentsFactory {
       = this._map(LinkedIn, LinkedInModel, (m) => ({ profile: m.profile }))
     resumeConfig["Website"]
       = this._map(Website, WebsiteModel, (m) => ({ url: m.url }))
+    resumeConfig["Projects"]
+      = this._map(Project, ProjectModel, (m) => ({ project: m }))
   }
 
   _map(comp, model, mapProps) {

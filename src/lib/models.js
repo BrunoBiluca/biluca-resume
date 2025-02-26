@@ -17,6 +17,7 @@ import Game from "./models/section_items/Game.model"
 import Language from "./models/section_items/Language.model"
 import Skill from "./models/section_items/Skill.model"
 import WorkExperience from "./models/section_items/WorkExperience.model"
+import Project from "./models/section_items/Project.model"
 
 
 export {
@@ -35,5 +36,6 @@ export {
   Section,
   Skill,
   Website,
-  WorkExperience
+  WorkExperience,
+  Project
 }
