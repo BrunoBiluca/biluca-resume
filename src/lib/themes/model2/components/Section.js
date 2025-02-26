@@ -2,7 +2,7 @@ import { loc } from "../../../locale/LocaleText";
 
 export default function Section({ title, style, children }) {
   return <section
-    style={{ padding: "1em", ...style}}
+    style={{...style}}
   >
     <h2
       style={{

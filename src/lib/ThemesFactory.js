@@ -20,7 +20,7 @@ export default class ThemesFactory {
     try {
       return this.mapper[type](data)
     } catch (error) {
-      console.log(type)
+      console.log(`Tema <${type}> não definido`)
       throw error
     }
   }

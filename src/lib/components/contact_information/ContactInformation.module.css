@@ -1,7 +1,3 @@
-.contactInformation {
-  margin-block: 1em;
-}
-
 .contactInformation:first-child:first{
   margin-right: 1em;
 }

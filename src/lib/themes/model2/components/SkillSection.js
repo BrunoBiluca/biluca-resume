@@ -15,9 +15,7 @@ export default function SkillSection({ section }) {
   }
   categories = categories.filter(c => c.entries.length > 0)
 
-  return <section
-    style={{ padding: "1em" }}
-  >
+  return <section>
     <h2
       style={{
         color: "var(--font-highlight-color)",
@@ -30,42 +28,43 @@ export default function SkillSection({ section }) {
         border: "1px solid #0003"
       }}
     />
-    {
-      categories.map(cat =>
-        rc(
-          cat,
-          <div key={cat.key()}>
-            <h5
-              style={{
-                border: 0,
-                margin: ".2em 0",
-                fontWeight: "normal",
-                fontStyle: "italic"
-              }}
-            >
-              {loc(cat.category)}
-            </h5>
-            <ul style={{ margin: 0, marginBottom: "1em" }}>
-              {
-                cat.entries.map(e => rc(
-                  e,
-                  <li 
-                    key={e.key()}
-                    style={{
-                      listStyle: "inside",
-                      lineHeight: 1.1,
-                      fontSize: "var(--font-size-text)"
-                    }}
-                  >
-                    {e.label}
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+    <div style={{ display: "grid", gap: ".5em" }}>
+      {
+        categories.map(cat =>
+          rc(
+            cat,
+            <div key={cat.key()}>
+              <h5
+                style={{
+                  border: 0,
+                  margin: ".2em 0",
+                  fontWeight: "bold",
+                  fontStyle: "italic"
+                }}
+              >
+                {loc(cat.category)}
+              </h5>
+              <ul style={{ margin: 0 }}>
+                {
+                  cat.entries.map(e => rc(
+                    e,
+                    <li
+                      key={e.key()}
+                      style={{
+                        listStyle: "inside",
+                        lineHeight: 1.1,
+                        fontSize: "var(--font-size-text)"
+                      }}
+                    >
+                      {e.label}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          )
         )
-      )
-    }
+      }
+    </div>
   </section>
-
 }

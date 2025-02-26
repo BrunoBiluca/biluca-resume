@@ -10,7 +10,10 @@ export default function OnePagerResume({ resume }) {
     {cfac().render(resume.mainInformation)}
     <GridColumns>
       <Side key={"side"}>
-        {cfac().render(resume.contactInfo)}
+        <div style={{ paddingTop: "1em" }}>
+          {cfac().render(resume.contactInfo)}
+        </div>
+        
         {
           resume.sections
             ?.filter(s => s.theme && s.theme["place"] === "side")

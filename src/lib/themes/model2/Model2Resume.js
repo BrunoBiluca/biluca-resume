@@ -2,10 +2,11 @@ import React from "react";
 import Page from "../../components/page/Page";
 import ComponentsFactory, { cfac } from "../../core/ComponentsFactory";
 import { rc } from "../../core/ResumeComponent";
-import { Education, Section as SectionModel, WorkExperience } from "../../models";
+import { Education, Project, Section as SectionModel, WorkExperience } from "../../models";
 import Section from "./components/Section";
 import SkillSection from "./components/SkillSection";
 import { loc } from "../../locale/LocaleText";
+import { FaDownload, FaGithub } from "react-icons/fa";
 
 export default function Model2Resume({ resume }) {
   let contactInfo = new SectionModel(resume.contactInfo)
@@ -13,6 +14,7 @@ export default function Model2Resume({ resume }) {
   let languagesSection = resume.sections.find(s => s.type == "Language")
   let eductationSection = resume.sections.find(s => s.type == "Education")
   let workSection = resume.sections.find(s => s.type == "WorkExperience")
+  let projects = resume.sections.find(s => s.type == "Projects")
   return <Page>
     <div style={{
       display: "grid",
@@ -66,7 +68,10 @@ export default function Model2Resume({ resume }) {
       <div
         style={{
           backgroundColor: "#b761071a",
-          height: "100%"
+          height: "100%",
+          padding: "1em",
+          display: "grid",
+          gap: ".5em"
         }}
       >
         {
@@ -118,6 +123,52 @@ export default function Model2Resume({ resume }) {
                   )
                 }
                 )
+              }
+            </Section>
+          )
+        }
+        {
+          rc(
+            projects,
+            <Section key={projects.key()} title={projects.title}>
+              {
+                projects.entries.map(e => {
+                  let project = new Project(e)
+                  return rc(
+                    project,
+                    <div>
+                      <div style={{ display: "flex", gap: ".5em", marginBottom: ".5em" }}>
+                        <h2
+                          style={{ flex: "1" }}
+                        >
+                          {project.title}
+                        </h2>
+                        <a
+                          href={project.repo} target="_blank" rel="noreferrer"
+                          style={{ color: "var(--font-main-color)" }}
+                        >
+                          <FaGithub />
+                        </a>
+                        <a
+                          href={project.release_link} target="_blank" rel="noreferrer"
+                          style={{ color: "var(--font-main-color)" }}
+                        >
+                          <FaDownload />
+                        </a>
+                      </div>
+
+                      <div style={{ display: "grid", gap: ".5em" }}>
+                        <p><strong>Tech Stack:</strong> {loc(project.tech_stack)}</p>
+                        <p style={{ fontStyle: "italic" }}>
+                          {loc(project.description)}
+                        </p>
+                        <p style={{ fontWeight: "bold" }}>
+                          {loc(project.role)}
+                        </p>
+                      </div>
+                    </div>
+                  )
+                })
               }
             </Section>
           )
