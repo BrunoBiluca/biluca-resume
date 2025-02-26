@@ -44,7 +44,7 @@ Métricas para monitorar:
 
 # Requisitos
 
-### RF - {ID - título}
+### RF {ID - título}
 
 __Descrição__
 

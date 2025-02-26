@@ -2,6 +2,9 @@
 
 # Modelo de informação
 
+> [!info] Requisitos que definem o sistema
+> - [[DRP 01 - Renderização do currículo componentes básicos]]
+
 Todos os currículos compartilham informações que são pertinentes aos avaliadores ao mesmo tempo que cada vaga exige uma composição diferente de informações.
 
 Para isso é necessário a análise de cada um dos componentes que devem ser apresentados ao currículo. Isso nos permite também levantar dicas para melhor preencher as informações.
@@ -13,7 +16,10 @@ Todos os temas compartilham a mesma composição de informação e devem definir
 ![[Arquitetura - Modelo de informação||%cheio]]
 # Sistema de Temas
 
-A biblioteca Biluca Resume permite escolher entre vários modelos de currículos a fim que o autor possa exibir as informações da forma que ele entenda ser mais efetiva. Essa funcionalidade está definida em [[DRP 02 - Temas]].
+> [!info] Requisitos que definem o sistema
+> - [[DRP 02 - Temas]]
+
+A biblioteca Biluca Resume permite escolher entre vários modelos de currículos a fim que o autor possa exibir as informações da forma que ele entenda ser mais efetiva.
 
 O sistema de modelos de currículos utiliza principalmente 4 estruturas:
 

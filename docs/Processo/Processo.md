@@ -5,6 +5,14 @@ Descrição do processo de coordenação do projeto, com suas entidades, rituais
 
 # Novos requisitos
 
-Para novos requisitos serão criados seus respectivos documentos de requisitos na Documentação de Produto.
+Para novos requisitos serão criados seus respectivos documentos de requisitos na Documentação de Produto ().
 
-O documento de requisito deve estar devidamente refinamento para então ser aberto e registrado no sistema de gestão.
+O documento de requisito deve estar devidamente refinado para então ser aberto e registrado no sistema de gestão.
+
+
+### Estado de um requisito funcional
+
+- ❓ refinamento
+-  ⬛ aberto
+-  🌀 em progresso
+-  ✅ concluído
